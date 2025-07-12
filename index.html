@@ -3,117 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Haruna Hussein | ISP setup, Tech specialist, Crypto trainer, and IoT consultant based in Zanzibar. Book services and connect easily." />
   <title>Haruna Hussein | Tech & Crypto Specialist</title>
+  <meta name="description" content="Haruna Hussein | ISP setup, Tech specialist, Crypto trainer, and IoT consultant based in Zanzibar. Book services and connect easily." />
+  <meta name="keywords" content="Haruna, ISP, Network setup, Tech in Zanzibar, ethical hacker, cybersecurity, crypto trainer, IoT support" />
+  <meta name="author" content="Haruna Hussein" />
+  <meta name="robots" content="index, follow" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #f4f9fc;
+      margin: 0;
+      padding: 0;
     }
     header {
+      background-color: #003366;
+      color: white;
       text-align: center;
-      margin-bottom: 30px;
-    }
-    header img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #4CAF50;
+      padding: 30px 10px;
     }
     h1 {
-      margin-top: 15px;
-      font-size: 2em;
-      color: #2E7D32;
+      color: red;
+      margin-bottom: 5px;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
+    .marquee {
+      background-color: #003366;
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    img.profile {
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #aaa;
+      width: 300px;
+    }
+    .services ul, .contact p {
+      line-height: 1.8;
     }
     .gallery {
       display: flex;
-      gap: 15px;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 20px 0;
     }
     .gallery img {
-      width: 200px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    a {
-      color: #2E7D32;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      width: 180px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
     }
     footer {
-      margin-top: 40px;
+      background-color: #003366;
+      color: white;
       text-align: center;
-      font-size: 0.9em;
-      color: #666;
-      border-top: 1px solid #ccc;
-      padding-top: 10px;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="images/Haruna.jpg" alt="Picha ya Haruna Hussein" />
     <h1>Haruna Hussein</h1>
-    <p>Tech & Crypto Specialist | ISP Setup | IoT Consultant | Zanzibar</p>
+    <p>SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
   </header>
 
-  <section>
-    <h2>Huduma Zangu</h2>
-    <ul>
-      <li>🔧 Usanidi na Matengenezo ya Mtandao wa WiFi</li>
-      <li>💡 Ushauri wa Teknolojia za Crypto na Blockchain</li>
-      <li>🌐 Uanzishaji wa Mtandao wa Intaneti (ISP) Kijijini</li>
-      <li>📡 Installation na Maintenance ya IoT & Home Networking</li>
-    </ul>
-  </section>
+  <div class="marquee">
+    <span>WELCOME TO HARUNA HUSSEIN SOFTWARE</span>
+  </div>
 
-  <section>
-    <h2>Kuhusu Haruna</h2>
-    <p>Mimi ni fundi wa mitandao na mtoaji wa huduma za teknolojia, nikipenda kusaidia watu na biashara kukuza uwezo wao wa kiteknolojia kwa njia rahisi na za kisasa.</p>
-  </section>
+  <div class="container">
+    <img src="Haruna.jpg" alt="Haruna Hussein" class="profile" />
 
-  <section>
-    <h2>📷 Mifano ya Huduma Zangu</h2>
-    <div class="gallery">
-      <img src="images/Haruna1.jpg" alt="Mfano wa kazi 1" />
-      <img src="images/Haruna2.jpg" alt="Mfano wa kazi 2" />
-      <img src="images/Haruna3.jpg" alt="Mfano wa kazi 3" />
-    </div>
-  </section>
+    <section class="services">
+      <h2>Huduma Zinazotolewa</h2>
+      <ul>
+        <li>ISP Planning & WiFi Setup (Kijiji / Hoteli)</li>
+        <li>Crypto Training na Elimu ya Sarafu Mtandao</li>
+        <li>Cisco Networking & Packet Tracer Simulations</li>
+        <li>Programming kwa Python na C++</li>
+        <li>Usalama wa Mtandao (Cybersecurity Awareness)</li>
+        <li>Maintenance ya IoT & Home Networking</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>📞 Mawasiliano</h2>
-    <p>📱 <a href="tel:+255787020219">+255 787 020 219</a></p>
-    <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
-    <p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
-    <p>📧 <a href="mailto:harunahusseiin02@outlook.com">harunahusseiin02@outlook.com</a></p>
-    <p>🌍 Zanzibar - Tanzania</p>
-  </section>
+    <section class="about">
+      <h2>Kuhusu Haruna</h2>
+      <p>Mimi ni fundi wa mitandao na mtoaji wa huduma za digitali. Nawasaidia watu wa Zanzibar kupata suluhisho la kisasa katika mtandao, ulinzi, na teknolojia ya nyumbani. Nawasiliana moja kwa moja na wateja kwa njia rahisi na ya moja kwa moja.</p>
+    </section>
+
+    <section class="gallery">
+      <h2>Gallery ya Haruna</h2>
+      <img src="Haruna1.jpg" alt="Gallery image 1" />
+      <img src="Haruna2.jpg" alt="Gallery image 2" />
+      <img src="Haruna3.jpg" alt="Gallery image 3" />
+      <img src="Haruna4.jpg" alt="Gallery image 4" />
+    </section>
+
+    <section class="contact">
+      <h2>Wasiliana Nami</h2>
+      <p>📞 <a href="tel:+255787020219">+255 787 020 219</a></p>
+      <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
+      <p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
+      <p>📧 <a href="mailto:harunahusseiin02@outlook.com">harunahusseiin02@outlook.com</a></p>
+      <p>💬 <a href="https://wa.link/8ez0rb" target="_blank">WhatsApp Chat</a></p>
+      <p>🌍 Zanzibar - Tanzania</p>
+    </section>
+  </div>
 
   <footer>
-    <p>© 2024 Haruna Hussein. Powered by GitHub Pages</p>
+    © 2025 Haruna Hussein. Powered by GitHub Pages.
   </footer>
-
 </body>
 </html>
