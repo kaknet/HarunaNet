@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="sw">
 <header>
-<header>
-    <h1>WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
-    <div class="green-title">Haruna Hussein</div>
-    <div class="animated-zoom">SIMPLE CV / TECH & CRYPT>
-  </header>
-  <header style="background-color: #003366; padding: 20px; color: white;">
+<header style="background-color: #003366; padding: 25px 15px;">
   <div style="display: flex; align-items: center; flex-wrap: wrap;">
-    <!-- Video ya Logo -->
-    <video autoplay muted loop playsinline style="width: 80px; height: 80px; border-radius: 50%; margin-right: 15px;">
-      <source src="Log.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    
+    <!-- Logo ya Video ya Duara -->
+    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 4px solid #4CAF50; box-shadow: 0 2px 8px rgba(0,0,0,0.3); margin-right: 15px;">
+      <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="Log.mp4" type="video/mp4">
+        Browser yako haiungi mkono video.
+      </video>
+    </div>
+
+    <!-- Maandishi -->
+    <div>
+      <h1 style="color: orange; margin: 5px 0;">WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
+      <h2 class="blinking-green">Haruna Hussein</h2>
+      <p class="animated-zoom" style="font-style: italic; color: white;">SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
+    </div>
+
+  </div>
+</header>
 
     </div>
   </div>
 </header>
   <style>
+   @keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}
+
+.blinking-green {
+  color: green;
+  animation: blink 1.5s infinite;
+}
+
+.animated-zoom {
+  animation: zoomInOut 3s infinite;
+}
+
+@keyframes zoomInOut {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
   .header-content {
   display: flex;
   align-items: center;
