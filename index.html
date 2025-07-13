@@ -3,66 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Haruna Hussein | ISP setup, Tech specialist, Crypto trainer, and IoT consultant based in Zanzibar. Book services and connect easily." />
+  <meta name="description" content="Haruna Hussein | ISP setup, Tech specialist, Crypto trainer, na IoT consultant kutoka Zanzibar. Pata huduma bora sasa.">
   <title>Haruna Hussein | Tech & Crypto Specialist</title>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #e6f0f3;
-    margin: 0;
-    padding: 0;
-  }
-
-  footer {
-    background-color: #0066cc;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
-    clear: both;
-    margin-top: 50px;
-  }
-
-  form {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-
-  section#booking {
-    padding: 40px 20px;
-  }
-</style>
-  whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.Whatsapp-float img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
     body {
       font-family: Arial, sans-serif;
       background-color: #e6f0f3;
       margin: 0;
       padding: 0;
     }
+
     header {
       background-color: #003366;
       color: white;
       padding: 30px 10px 10px;
       text-align: center;
     }
+
+    h1 {
+      color: orange;
+      margin: 10px 0;
+    }
+
+    .green-title {
+      color: green;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .animated-zoom {
+      font-style: italic;
+      animation: zoomInOut 3s infinite;
+    }
+
+    @keyframes zoomInOut {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
     .profile-container {
       display: flex;
       flex-wrap: wrap;
@@ -71,6 +53,7 @@
       gap: 20px;
       padding: 20px;
     }
+
     .profile-img {
       width: 180px;
       height: 180px;
@@ -78,6 +61,7 @@
       object-fit: cover;
       border: 4px solid #4CAF50;
     }
+
     .mnara-img {
       width: 180px;
       height: 180px;
@@ -85,34 +69,16 @@
       object-fit: cover;
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
-    h1 {
-      color: orange;
-      margin: 15px 0 5px;
-    }
-    h2 {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .green-title {
-      color: green;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .animated-zoom {
-      font-style: italic;
-      animation: zoomInOut 3s infinite;
-    }
-    @keyframes zoomInOut {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
+
     .services-section {
       padding: 20px;
     }
+
     ul {
       list-style-type: square;
       padding-left: 20px;
     }
+
     .gallery {
       display: flex;
       gap: 15px;
@@ -120,6 +86,7 @@
       justify-content: center;
       padding: 20px;
     }
+
     .gallery img {
       width: 200px;
       height:140px;
@@ -128,86 +95,72 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.15);
       transition: transform 0.3s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.05);
     }
+
     footer {
+      background-color: #0066cc;
+      color: white;
       text-align: center;
-      font-size: 0.9em;
-      color: #666;
-      padding: 20px;
-      border-top: 1px solid #ccc;
-      margin-top: 20px;
+      padding: 15px 0;
+      margin-top: 40px;
     }
-    a {
-      color: #2E7D32;
-      text-decoration: none;
+
+    @media screen and (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+      }
+
+      .gallery img {
+        width: 90%;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
+    <h1>WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
     <div class="green-title">Haruna Hussein</div>
     <div class="animated-zoom">SIMPLE CV / TECH & CRYPTO SPECIALIST</div>
-    <h1>WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
   </header>
 
   <section class="profile-container">
-    <img src="Haruna.jpg" alt="Haruna Hussein" class="profile-img" />
+    <img src="Haruna.jpg" alt="Profile" class="profile-img" />
     <img src="Haruna5.jpg" alt="Mnara" class="mnara-img" />
   </section>
 
   <section class="services-section">
-    <h2>Huduma Zinazotolewa</h2>
+    <h2>✔️ Huduma Zinazotolewa</h2>
     <ul>
-      <li>ISP Planning & WiFi Setup (Kijiji / Hoteli)</li>
-      <li>Crypto Training na Elimu ya Sarafu Mtandao</li>
-      <li>Cisco Networking & Packet Tracer Simulations</li>
-      <li>Programming kwa Python na C++</li>
-      <li>Usalama wa Mtandao (Cybersecurity Awareness)</li>
-      <li>Maintenance ya IoT & Home Networking</li>
+      <li>Ufungaji wa Mtandao wa WiFi Vijijini</li>
+      <li>Matengenezo ya vifaa vya IoT & Networking</li>
+      <li>Consulting ya Crypto & Teknolojia</li>
+      <li>Usanifu wa Control Rooms & Resort Networks</li>
     </ul>
   </section>
 
   <section>
-    <h2>📷 Huduma Zangu</h2>
+    <h2 style="text-align:center;">📷 Huduma 1 hadi 4</h2>
     <div class="gallery">
-      <img src="Haruna.jpg" alt="Huduma 1" />
-      <img src="Haruna2.jpg" alt="Huduma 2" />
-      <img src="Haruna3.jpg" alt="Huduma 3" />
-      <img src="Haruna4.jpg" alt="Huduma 4" />
+      <img src="Haruna.jpg" alt="Huduma 1">
+      <img src="Haruna2.jpg" alt="Huduma 2">
+      <img src="Haruna3.jpg" alt="Huduma 3">
+      <img src="Haruna4.jpg" alt="Huduma 4">
     </div>
-<section id="booking">
-  <h2 style="text-align:center; color:#333;">📅 Omba Huduma</h2>
-  <form action="#" method="post" style="max-width:600px; margin:auto;">
-    <label for="name">👤 Jina Kamili:</label><br>
-    <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;"><br>
+  </section>
 
-    <label for="phone">📱 Namba ya Simu:</label><br>
-    <input type="tel" id="phone" name="phone" required style="width:100%; padding:8px; margin-bottom:10px;"><br>
-
-    <label for="service">🔧 Huduma Unayotaka:</label><br>
-    <input type="text" id="service" name="service" placeholder="Mfano: WiFi setup, IoT, Crypto" style="width:100%; padding:8px; margin-bottom:10px;"><br>
-
-    <label for="message">💬 Ujumbe:</label><br>
-    <textarea id="message" name="message" rows="4" style="width:100%; padding:8px; margin-bottom:10px;"></textarea><br>
-
-    <button type="submit" style="background-color:orange; color:white; padding:10px 20px; border:none; cursor:pointer;">Tuma Ombi</button>
-  </form>
-</section>
+  <section>
+    <h2>📞 Mawasiliano</h2>
+    <p>📱 <a href="tel:+255787020219">0787 020 219</a></p>
+    <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
+    <p>🌍 Zanzibar - Tanzania</p>
   </section>
 
   <footer>
-    <h2>📞 Mawasiliano</h2>
-    <p>📱 <img src="WhatsApp.png" alt="WhatsApp" style="width:20px; vertical-align:middle;"/> <a href="https://wa.link/8ez0rb" target="_blank">0787 020 219 - WhatsApp</a></p>
-<p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
-<p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
-<p>📧 <a href="mailto:harunahusseiin02@outlook.com">harunahusseiin02@outlook.com</a></p>
-<p>🌍 Zanzibar - Tanzania</p>
+    <p>© 2025 Haruna Hussein. Powered by GitHub Pages</p>
   </footer>
-
-</a>
-</body>
 </body>
 </html>
