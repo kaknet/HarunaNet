@@ -173,70 +173,141 @@
   <section class="profile-container">
     <img src="Haruna5.jpg" alt="Mnara" class="mnara-img" />
   </section>
-   <section id="services" style="padding: 50px 20px; background: linear-gradient(to bottom, #d0eafc, #f0f8ff); text-align: center;">
-  <h2 style="color: #003366; font-size: 30px;">🔧 Huduma Zetu</h2>
+  
+   <section id="services" style="padding: 50px 20px; background: linear-gradient(to bottom, #a3d5f7, #f0f8ff); text-align: center;">
+  <h2 style="color: #003366; font-size: 30px;">🔧 Gusa Huduma Upendayo</h2>
 
-  <div style="max-width: 900px; margin: auto;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 30px;">
     
-    <!-- Mafunzo ya Digitali -->
-    <div onclick="toggleInfo('digital')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #006600;">🧑‍💻 Mafunzo ya Digitali</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
-    </div>
-    <div id="digital" style="display:none; background:#eefafc; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Kutoa mafunzo ya mitandao, Python, C++, na cybersecurity kwa vijana.</p>
-      <a href="https://wa.me/255787020219?text=Naomba mafunzo ya digitali" target="_blank">📲 Wasiliana kwa WhatsApp</a>
-    </div>
-
-    <!-- Ushauri wa Crypto -->
-    <div onclick="toggleInfo('crypto')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #9900cc;">💰 Mafunzo ya Crypto</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
-    </div>
-    <div id="crypto" style="display:none; background:#fbeefb; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Elimu kuhusu crypto wallets, usalama wa fedha, na biashara za sarafu mtandao.</p>
-      <a href="https://wa.me/255787020219?text=Naomba mafunzo ya crypto" target="_blank">📲 Wasiliana kwa WhatsApp</a>
+    <!-- Kadi ya Crypto -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: #9900cc;">💰 Mafunzo ya Crypto Company</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: #9900cc;">Crypto Currency Training</h3>
+          <p>📉 Analysis ya mabadiliko ya soko</p>
+          <p>🔐 Ulinzi wa wallet yako</p>
+          <p>📊 Maarifa ya fundamental & technical analysis</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Usambazaji wa WiFi -->
-    <div onclick="toggleInfo('wifi')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: green;">📡 Usambazaji wa WiFi</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
-    </div>
-    <div id="wifi" style="display:none; background:#e7fbe7; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Tunasambaza huduma ya WiFi kwa vijiji, hoteli, na biashara ndogo.</p>
-      <a href="https://wa.me/255787020219?text=Naomba huduma ya WiFi" target="_blank">📲 Wasiliana kwa WhatsApp</a>
-    </div>
-
-    <!-- Maintenance & IoT -->
-    <div onclick="toggleInfo('iot')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #ff6600;">🛠️ Maintenance & IoT</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
-    </div>
-    <div id="iot" style="display:none; background:#fff8e7; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Matengenezo ya vifaa vya mtandao na miradi ya sensa nyumbani (IoT).</p>
-      <a href="https://wa.me/255787020219?text=Naomba huduma ya matengenezo na IoT" target="_blank">📲 Wasiliana kwa WhatsApp</a>
+    <!-- Kadi ya Digitali -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: #006600;">🧑‍💻 Mafunzo ya Digitali</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: #006600;">Digital Technology Training</h3>
+          <p>🖥️ Python, C++, HTML, CSS</p>
+          <p>🌐 Mitandao, cybersecurity & ethics</p>
+          <p>📚 Elimu ya vijana kupitia HarunaNet ISP</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Usalama wa Mtandao -->
-    <div onclick="toggleInfo('security')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #006699;">🔐 Usalama wa Mtandao</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
-    </div>
-    <div id="security" style="display:none; background:#e2f4ff; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Elimu ya cybersecurity na teknolojia za encryption na firewall.</p>
-      <a href="https://wa.me/255787020219?text=Naomba huduma ya usalama wa mtandao" target="_blank">📲 Wasiliana kwa WhatsApp</a>
+    <!-- Kadi ya WiFi -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: green;">📡 Usambazaji wa WiFi</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: green;">ISP & WiFi Solutions</h3>
+          <p>🏘️ WiFi kijijini & hoteli</p>
+          <p>📶 Mikakati ya usambazaji kwa gharama nafuu</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Uundaji wa Website & App -->
-    <div onclick="toggleInfo('web')" style="cursor:pointer; background:white; margin-top:20px; padding:20px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #cc3300;">🌐 Uundaji wa Website & App</h3>
-      <p style="margin:0;">Bonyeza hapa kila utume ombi la huduma</p>
+    <!-- Kadi ya IoT -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: #ff6600;">🛠️ Maintenance & IoT</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: #ff6600;">IoT & Smart Systems</h3>
+          <p>🏠 Sensa nyumbani & miradi ya IoT</p>
+          <p>🔧 Matengenezo ya vifaa vya mtandao</p>
+        </div>
+      </div>
     </div>
-    <div id="web" style="display:none; background:#fff0f0; padding:15px; border-radius:8px; margin-bottom:10px;">
-      <p>Uundaji wa tovuti za kisasa, apps kwa biashara ndogo, mashirika na taasisi.</p>
-      <a href="https://wa.me/255787020219?text=Naomba huduma ya uundaji wa website/app" target="_blank">📲 Wasiliana kwa WhatsApp</a>
+
+    <!-- Kadi ya Usalama -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: #006699;">🔐 Usalama wa Mtandao</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: #006699;">Cybersecurity Support</h3>
+          <p>🧠 Elimu ya mashambulizi mtandaoni</p>
+          <p>🛡️ Firewalls & encryption techniques</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Kadi ya Website/App -->
+    <div class="flip-card">
+      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-front">
+          <h3 style="color: #cc3300;">🌐 Uundaji wa Website & App</h3>
+          <p>Touch here for more information</p>
+        </div>
+        <div class="flip-card-back">
+          <h3 style="color: #cc3300;">Web & App Development</h3>
+          <p>💼 Biashara ndogo & mashirika ya kijamii</p>
+          <p>📱 Tovuti ya kitaalamu + accessibility tools</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .flip-card {
+    background-color: transparent;
+    width: 270px;
+    height: 220px;
+    perspective: 1000px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .flip-card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  .flip-card-front {
+    background-color: white;
+  }
+  .flip-card-back {
+    background-color: #f2f9ff;
+    transform: rotateY(180deg);
+  }
+</style>
 
   </div>
 </section>
