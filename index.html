@@ -18,184 +18,62 @@
       <h2 class="blinking-green">Haruna Hussein</h2>
       <p class="animated-zoom" style="font-style: italic; color: white;">SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
     </div>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0f3;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #003366;
+    color: white;
+    text-align: left;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .header-text h1 {
+    color: orange;
+    font-size: 22px;
+    margin: 5px 0;
+  }
+
+  .green-title {
+    color: green;
+    font-size: 28px;
+    font-weight: bold;
+    animation: blink 1.5s infinite;
+  }
+
+  .animated-zoom {
+    font-size: 20px;
+    font-style: italic;
+    animation: zoomInOut 3s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @keyframes zoomInOut {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
 </style>
-   @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.1; }
-}
-
-.blinking-green {
-  color: green;
-  animation: blink 1.5s infinite;
-}
-
-.animated-zoom {
-  animation: zoomInOut 3s infinite;
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-  .header-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.header-content video {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
-}
-
-h1.green-title {
-  color: #4CAF50;
-  margin: 0;
-  font9-size: 12px;
-}
-
-p.animated-zoom {
-  font-style: italic;
-  animation: zoomInOut 1.5s infinite;
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-  form {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
-}
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0f3;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 10px 10px;
-      text-align: center;
-    }
-
-    h1 {
-      color: orange;
-      margin: 10px 0;
-    }
-
-    .green-title {
-      color: green;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .animated-zoom {
-      font-style: italic;
-      animation: zoomInOut 3s infinite;
-    }
-
-    @keyframes zoomInOut {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-    }
-
-    .profile-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #4CAF50;
-    }
-
-    .mnara-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 15px;
-      object-fit: cover;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }
-
-    .services-section {
-      padding: 20px;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-
-    .gallery {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 200px;
-      height:140px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      background-color: #0066cc;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
-
-    @media screen and (max-width: 768px) {
-      .profile-container {
-        flex-direction: column;
-      }
-
-      .gallery img {
-        width: 90%;
-      }
-    }
-  </style>
 </head>
 
 <body>
