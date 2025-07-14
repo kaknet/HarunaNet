@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Haruna Hussein | ISP, Tech & Crypto Specialist">
   <title>Haruna Hussein | Tech & Crypto Specialist</title>
@@ -14,44 +14,56 @@
       background-color: #e6f0f3;
     }
 
-    .header-bar {
+    nav {
+      background-color: #002244;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
       background-color: #003366;
+      color: white;
       padding: 20px;
       display: flex;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .header-bar img {
+    .logo-video {
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      margin-right: 20px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
 
-    .header-bar .text-area {
-      text-align: center;
-      flex-grow: 1;
-    }
-
-    .header-bar .text-area h1 {
+    .title-area h1 {
       color: orange;
       margin: 5px 0;
-      font-size: 22px;
     }
 
-    .header-bar .text-area h2 {
+    .title-area h2 {
       color: green;
-      font-size: 30px;
+      font-size: 28px;
       animation: blink 1.5s infinite;
     }
 
-    .header-bar .text-area p {
+    .title-area p {
       font-style: italic;
       animation: zoomInOut 3s infinite;
       color: white;
-      font-size: 18px;
     }
 
     @keyframes blink {
@@ -64,284 +76,138 @@
       50% { transform: scale(1.1); }
     }
 
+    .profile-container, .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .profile-img, .mnara-img, .gallery img {
+      width: 180px;
+      height: 140px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    section#booking, section#vision {
+      padding: 30px;
+      text-align: center;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    form input, form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      max-width: 600px;
+    }
+
+    .footer-right video {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
     @media screen and (max-width: 600px) {
-      .header-bar {
+      header, .profile-container, .gallery, footer {
         flex-direction: column;
         text-align: center;
       }
-
-      .header-bar .text-area {
-        margin-top: 10px;
+      .logo-video, .profile-img, .mnara-img {
+        width: 100px;
+        height: 100px;
+      }
+      form {
+        width: 100%;
+      }
+      .gallery img {
+        width: 100%;
+        height: auto;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="header-bar">
-    <img src="Haruna.jpg" alt="Logo">
-    <div class="text-area">
+  <nav>
+    <a href="#booking">📅 Booking</a>
+    <a href="#vision">🚀 Maono</a>
+    <a href="#footer">📞 Mawasiliano</a>
+  </nav>
+
+  <header>
+    <video autoplay muted loop playsinline class="logo-video">
+      <source src="Log.mp4" type="video/mp4">
+    </video>
+    <div class="title-area">
       <h1>WELCOME TO HARUNANET ISP</h1>
       <h2>Haruna Hussein</h2>
       <p>SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
     </div>
-  </div>
+  </header>
 
-</body>
-</html>
-
-  <style>
-/* Section ya juu hadi gallery iwe na background blue */
-.section-blue {
-  background-color: #003366;
-  color: white;
-  padding: 30px 20px;
-}
-
-/* Hii itahakikisha maandishi ya header, picha, na gallery yanabaki yanapendeza */
-.section-blue h1,
-.section-blue h2,
-.section-blue p {
-  color: white;
-}
-
-.gallery img {
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(255,255,255,0.3);
-}
-   @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-  @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-   @media screen and (max-width: 600px) {
-  header, .profile-container, .gallery, footer {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .logo-video, .profile-img, .mnara-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .gallery img {
-    width: 100%;
-    height: auto;
-  }
-
-  form {
-    width: 90%;
-    margin: auto;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .footer-left, .footer-right {
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer-right video {
-    margin-top: 15px;
-  }
-}
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #e6f0f3;
-    }header {
-  background-color: #003366;
-  color: white;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin-right: 15px;
-  object-fit: cover;
-  border: 3px solid #4CAF50;
-}
-
-.title-area {
-  flex-grow: 1;
-}
-
-.title-area h1 {
-  color: orange;
-  margin: 5px 0;
-}
-
-.title-area h2 {
-  color: green;
-  font-size: 28px;
-  animation: blink 1.5s infinite;
-}
-
-.title-area p {
-  font-style: italic;
-  animation: zoomInOut 3s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes zoomInOut {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-.profile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  background-color: #003366;
-  padding: 20px;
-}
-
-.profile-img, .mnara-img {
-  width: 180px;
-  height: 180px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
-
-.gallery {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #003366;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 200px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-section#booking {
-  padding: 30px;
-  background-color: #003366;
-  text-align: center;
-}
-
-form {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  margin: auto;
-}
-
-section#vision {
-  padding: 30px;
-  background-color: white;
-}
-
-footer {
-  background-color: #003366;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-left {
-  text-align: left;
-}
-
-.footer-right video {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-  </style>
-</head>
-<body>
-<body>
-
-  <div class="section-blue">
-    <header>... </header>
-
-    <section class="profile-container">
-      <img src="Haruna.jpg" ... />
-      ...
-    </section>
-
-    <div class="gallery">
-      <img src="Haruna1.jpg" ... />
-      ...
-    </div>
-  </div>
-</header>
-  </header>  <section class="profile-container">
+  <section class="profile-container">
+    <img src="Haruna.jpg" alt="Profile" class="profile-img" />
     <img src="Haruna5.jpg" alt="Mnara" class="mnara-img" />
-  </section>  <div class="gallery">
+  </section>
+
+  <div class="gallery">
     <img src="Haruna.jpg" alt="Huduma 1">
     <img src="Haruna2.jpg" alt="Huduma 2">
     <img src="Haruna3.jpg" alt="Huduma 3">
     <img src="Haruna4.jpg" alt="Huduma 4">
-  </div>  <section id="booking">
+  </div>
+
+  <section id="booking">
     <form>
       <h3>📅 Booking Form</h3>
-      <input type="text" placeholder="Jina Kamili" required><br><br>
-      <input type="email" placeholder="Barua pepe" required><br><br>
-      <input type="text" placeholder="Huduma Unayotaka" required><br><br>
+      <input type="text" placeholder="Jina Kamili" required>
+      <input type="email" placeholder="Barua pepe" required>
+      <input type="text" placeholder="Huduma Unayotaka" required>
       <button type="submit">Tuma</button>
     </form>
-  </section>  <section id="vision">
-    <h2 style="text-align: center;">🌟 Dira na Maono</h2>
+  </section>
+
+  <section id="vision">
+    <h2>🌟 Dira na Maono</h2>
     <div style="max-width: 800px; margin: auto; text-align: justify;">
       <h3 style="color: green;">🎯 Dira (Vision)</h3>
-      <p><span style="font-size: 1.5em;">🌐</span> Kuwa mtoa huduma bora wa kiteknolojia nchini Tanzania na Afrika Mashariki...</p>
+      <p>🌐 Kuwa mtoa huduma bora wa kiteknolojia nchini Tanzania na Afrika Mashariki...</p>
       <h3 style="color: orange;">🚀 Maono (Mission)</h3>
-      <p><span style="font-size: 1.5em;">🛠️</span> Kutoa huduma za kitaalamu...</p>
-      <p><span style="font-size: 1.5em;">🌍</span> Tunaamini kuwa kila kijiji...</p>
+      <p>🛠️ Kutoa huduma za kitaalamu katika nyanja za mitandao, usalama wa digitali, na crypto...</p>
+      <p>🌍 Tunaamini kuwa kila kijiji kinaweza kufikiwa na teknolojia ya kisasa...</p>
       <h3 style="color: #00796B;">💡 Dhamira kwa Vijana</h3>
-      <p>HarunaNet ISP inaamini katika kujenga kizazi kinachomudu teknolojia...</p>
+      <p>HarunaNet ISP inaamini katika kujenga kizazi kinachomudu teknolojia na kuitumia kwa manufaa ya jamii...</p>
     </div>
-  </section>  <footer>
+  </section>
+
+  <footer id="footer">
     <div class="footer-left">
       <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
       <p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
@@ -357,5 +223,6 @@ footer {
       </video>
     </div>
   </footer>
+
 </body>
 </html>
