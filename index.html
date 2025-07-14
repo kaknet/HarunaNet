@@ -26,6 +26,30 @@
   </div>
 </header>
   <style>
+   <style>
+  .green-title {
+    color: green;
+    font-size: 32px;
+    font-weight: bold;
+    animation: blink 2s infinite;
+  }
+
+  .animated-zoom {
+    font-size: 20px;
+    font-style: italic;
+    animation: zoomInOut 3s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.1; }
+  }
+
+  @keyframes zoomInOut {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+</style>
    @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.1; }
