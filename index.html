@@ -1,179 +1,186 @@
-<!DOCTYPE html>
-<html lang="sw">
-<header>
-<header style="background-color: #003366; padding: 25px 15px;">
-  <div style="display: flex; align-items: center; flex-wrap: wrap;">
-    
-    <!-- Logo ya Video ya Duara -->
-    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 4px solid #4CAF50; box-shadow: 0 2px 8px rgba(0,0,0,0.3); margin-right: 15px;">
-      <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-        <source src="Log.mp4" type="video/mp4">
-        Browser yako haiungi mkono video.
-      </video>
-    </div>
+<!DOCTYPE html><html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haruna Hussein | ISP, Tech & Crypto Specialist">
+  <title>Haruna Hussein | Tech & Crypto Specialist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e6f0f3;
+    }header {
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
 
-    <!-- Maandishi -->
-    <div>
-      <h1 style="color: orange; margin: 5px 0;">WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
-      <h2 class="blinking-green">Haruna Hussein</h2>
-      <p class="animated-zoom" style="font-style: italic; color: white;">SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
-    </div>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #e6f0f3;
-    margin: 0;
-    padding: 0;
-  }
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+  border: 3px solid #4CAF50;
+}
 
-  header {
-    background-color: #003366;
-    color: white;
-    text-align: left;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
+.title-area {
+  flex-grow: 1;
+}
 
-  .logo-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 4px solid #4CAF50;
-    object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
+.title-area h1 {
+  color: orange;
+  margin: 5px 0;
+}
 
-  .header-text h1 {
-    color: orange;
-    font-size: 22px;
-    margin: 5px 0;
-  }
+.title-area h2 {
+  color: green;
+  font-size: 28px;
+  animation: blink 1.5s infinite;
+}
 
-  .green-title {
-    color: green;
-    font-size: 28px;
-    font-weight: bold;
-    animation: blink 1.5s infinite;
-  }
+.title-area p {
+  font-style: italic;
+  animation: zoomInOut 3s infinite;
+}
 
-  .animated-zoom {
-    font-size: 20px;
-    font-style: italic;
-    animation: zoomInOut 3s infinite;
-  }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+@keyframes zoomInOut {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
 
-  @keyframes zoomInOut {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
-</style>
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #003366;
+  padding: 20px;
+}
+
+.profile-img, .mnara-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.gallery {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #003366;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+section#booking {
+  padding: 30px;
+  background-color: #003366;
+  text-align: center;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+
+section#vision {
+  padding: 30px;
+  background-color: white;
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right video {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+  </style>
 </head>
-
-<body>
-  <section class="profile-container">
+<body>  <header>
+    <img src="Haruna.jpg" alt="Logo" class="logo" />
+    <div class="title-area">
+      <h1>WELCOME TO HARUNA HUSSEIN SOFTWARE</h1>
+      <h2>Haruna Hussein</h2>
+      <p>SIMPLE CV / TECH & CRYPTO SPECIALIST</p>
+    </div>
+  </header>  <section class="profile-container">
     <img src="Haruna.jpg" alt="Profile" class="profile-img" />
     <img src="Haruna5.jpg" alt="Mnara" class="mnara-img" />
-  </section>
-
-  <section class="services-section">
-    <h2>✔️ Huduma Zinazotolewa</h2>
-    <ul>
-      <li>Ufungaji wa Mtandao wa WiFi Vijijini</li>
-      <li>Matengenezo ya vifaa vya IoT & Networking</li>
-      <li>Consulting ya Crypto & Teknolojia</li>
-      <li>Usanifu wa Control Rooms & Resort Networks</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 style="text-align:center;">📷 Huduma 1 hadi 4</h2>
-    <div class="gallery">
-      <img src="Haruna.jpg" alt="Huduma 1">
-      <img src="Haruna2.jpg" alt="Huduma 2">
-      <img src="Haruna3.jpg" alt="Huduma 3">
-      <img src="Haruna4.jpg" alt="Huduma 4">
+  </section>  <div class="gallery">
+    <img src="Haruna.jpg" alt="Huduma 1">
+    <img src="Haruna2.jpg" alt="Huduma 2">
+    <img src="Haruna3.jpg" alt="Huduma 3">
+    <img src="Haruna4.jpg" alt="Huduma 4">
+  </div>  <section id="booking">
+    <form>
+      <h3>📅 Booking Form</h3>
+      <input type="text" placeholder="Jina Kamili" required><br><br>
+      <input type="email" placeholder="Barua pepe" required><br><br>
+      <input type="text" placeholder="Huduma Unayotaka" required><br><br>
+      <button type="submit">Tuma</button>
+    </form>
+  </section>  <section id="vision">
+    <h2 style="text-align: center;">🌟 Dira na Maono</h2>
+    <div style="max-width: 800px; margin: auto; text-align: justify;">
+      <h3 style="color: green;">🎯 Dira (Vision)</h3>
+      <p><span style="font-size: 1.5em;">🌐</span> Kuwa mtoa huduma bora wa kiteknolojia nchini Tanzania na Afrika Mashariki...</p>
+      <h3 style="color: orange;">🚀 Maono (Mission)</h3>
+      <p><span style="font-size: 1.5em;">🛠️</span> Kutoa huduma za kitaalamu...</p>
+      <p><span style="font-size: 1.5em;">🌍</span> Tunaamini kuwa kila kijiji...</p>
+      <h3 style="color: #00796B;">💡 Dhamira kwa Vijana</h3>
+      <p>HarunaNet ISP inaamini katika kujenga kizazi kinachomudu teknolojia...</p>
     </div>
-  </section>
-   <section id="booking">
-  <h2>📅 Weka Booking</h2>
-  <form action="https://formsubmit.co/harunahussein335@gmail.com" method="POST">
-    <label for="name">Jina Kamili:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="email">Barua Pepe:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="service">Huduma Unayotaka:</label><br>
-    <select id="service" name="service">
-      <option value="wifi">Wifi Installation</option>
-      <option value="iot">IoT Maintenance</option>
-      <option value="consult">Tech Consultation</option>
-      <option value="crypto">Crypto Training</option>
-    </select><br><br>
-
-    <label for="message">Ujumbe Mfupi:</label><br>
-    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-    <button type="submit" style="background-color:#0066cc; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">Tuma Booking</button>
-  </form>
-
-</section>
-   <section id="vision" style="padding: 20px; background-color: #f3f9fc;">
-  <h2 style="text-align: center; font-size: 28px; color: #003366;">🌟 Dira na Maono</h2>
-  <div style="max-width: 800px; margin: auto; text-align: justify; line-height: 1.8; font-size: 17px;">
-
-    <h3 style="color: green;">🎯 Dira (Vision)</h3>
-    <p>
-      <span style="font-size: 1.5em;">🌐</span>
-      Kuwa mtoa huduma bora wa kiteknolojia nchini Tanzania na Afrika Mashariki, kwa kuunganisha jamii na teknolojia za kisasa kama WiFi, IoT, na Crypto — kwa ufanisi, ubunifu na weledi.
-    </p>
-
-    <h3 style="color: orange;">🚀 Maono (Mission)</h3>
-    <p>
-      <span style="font-size: 1.5em;">🛠️</span>
-      Kutoa huduma za kitaalamu na za kuaminika katika maeneo ya mitandao ya WiFi, ulinzi wa kimtandao, mafundisho ya Crypto, na matengenezo ya mifumo ya IoT kwa watu binafsi, biashara, na taasisi.
-    </p>
-
-    <p>
-      <span style="font-size: 1.5em;">🌍</span>
-      Tunaamini kuwa kila kijiji kina haki ya kuwa na intaneti, kila familia ina haki ya kuunganishwa, na kila kijana ana haki ya kufundishwa maarifa ya karne ya 21.
-    </p>
-
-    <blockquote style="font-style: italic; color: #444; margin: 30px 0; text-align: center; background: #ffffff; padding: 15px; border-left: 4px solid #4CAF50;">
-      "Elimu ya teknolojia ni pasipoti ya kutoka katika umaskini – HarunaNet"
-    </blockquote>
-
-    <h3 style="color: #388E3C;">💡 Dhamira kwa Vijana wa Tanzania</h3>
-    <p>
-      HarunaNet ISP inaamini katika kujenga kizazi kinachomudu teknolojia — kwa kuwapa vijana mafunzo ya mtandao, coding, crypto, na usalama wa kidijitali. Tunakuza ubunifu wa vijana wa vijijini na mijini, tukiwapa fursa ya kubadilisha maisha yao kwa maarifa na nguvu ya mtandao.
-    </p>
-  </div>
-</section>
-  <section>
-  <h2>📞 Mawasiliano</h2>
-
-  <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
-  <p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
-  <p>📧 <a href="mailto:harunahusseiin02@outlook.com">harunahusseiin02@outlook.com</a></p>
-
-  <p>
-  <img src="WhatsApp.png" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-  <a href="https://wa.me/255787020219" target="_blank">Wasiliana kupitia WhatsApp</a>
-</p>
-
-  <p>🌍 Zanzibar - Tanzania 🇹🇿</p>
-</section>
-  </section>
-
-  <footer>
-    <p>© 2025 Haruna Hussein. Powered by GitHub Pages</p>
+  </section>  <footer>
+    <div class="footer-left">
+      <p>📧 <a href="mailto:harunahussein335@gmail.com">harunahussein335@gmail.com</a></p>
+      <p>📧 <a href="mailto:harunahussein797@gmail.com">harunahussein797@gmail.com</a></p>
+      <p>📧 <a href="mailto:harunahusseiin02@outlook.com">harunahusseiin02@outlook.com</a></p>
+      <p>📞 <a href="tel:+255787020219">+255 787 020 219</a></p>
+      <p>💬 <a href="https://wa.me/255787020219" target="_blank">Wasiliana kupitia WhatsApp</a></p>
+      <p>🌍 Zanzibar - Tanzania</p>
+      <p>© 2025 Haruna Hussein. Powered by GitHub Pages</p>
+    </div>
+    <div class="footer-right">
+      <video autoplay muted loop playsinline>
+        <source src="Log.mp4" type="video/mp4">
+      </video>
+    </div>
   </footer>
 </body>
 </html>
