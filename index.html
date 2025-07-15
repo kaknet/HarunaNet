@@ -174,13 +174,13 @@
     <img src="Haruna5.jpg" alt="Mnara" class="mnara-img" />
   </section>
   
-   <section id="services" style="padding: 60px 20px; background: linear-gradient(to bottom, #a3d5f7, #f0f8ff); text-align: center;">
+  <section id="services" style="padding: 60px 20px; background: linear-gradient(to bottom, #a3d5f7, #f0f8ff); text-align: center;">
   <h2 style="color: #003366; font-size: 32px;">🔧 GUSA HUDUMA BILA HOFU</h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px;">
+  <div class="card-grid">
     
-    <!-- Mafunzo ya Crypto Company -->
-    <div class="flip-card">
+    <!-- Template ya Flip Card: Rudia hii kwa huduma zote 6 -->
+    <div class="flip-card animate-card">
       <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-front">
           <img src="Crypto1.jpg" alt="Crypto Front" class="card-image">
@@ -190,123 +190,35 @@
         <div class="flip-card-back">
           <img src="Crypto2.jpg" alt="Crypto Back" class="card-image">
           <h3>Uwekezaji na Maarifa ya Crypto</h3>
-          <ul style="text-align: left;">
+          <ul>
             <li>📉 Mchanganuo wa soko</li>
             <li>🔐 Ulinzi wa wallet</li>
             <li>📊 Fundamental & Technical Analysis</li>
           </ul>
+          <p class="flip-note">/ karibu sasa katika huduma hii kwa hakika itakuretea stutus kubwa katika maisha yako anza leo sasa bila hofu /</p>
         </div>
       </div>
     </div>
 
-    <!-- Mafunzo ya Digitali -->
-    <div class="flip-card">
-      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-front">
-          <img src="Digital1.jpg" alt="Digital Front" class="card-image">
-          <h3>🧑‍💻 Mafunzo ya Digitali</h3>
-          <p>Gusa hapa kwa maelezo zaidi</p>
-        </div>
-        <div class="flip-card-back">
-          <img src="Digital2.jpg" alt="Digital Back" class="card-image">
-          <h3>Elimu ya Kidigitali</h3>
-          <ul style="text-align: left;">
-            <li>💻 Python, HTML, C++</li>
-            <li>🌐 Mitandao & Usalama</li>
-            <li>👥 Mafunzo kwa vijana</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Usambazaji wa WiFi -->
-    <div class="flip-card">
-      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-front">
-          <img src="Router1.jpg" alt="WiFi Front" class="card-image">
-          <h3>📡 Usambazaji wa WiFi</h3>
-          <p>Gusa hapa kwa maelezo zaidi</p>
-        </div>
-        <div class="flip-card-back">
-          <img src="Router2.jpg" alt="WiFi Back" class="card-image">
-          <h3>Huduma ya Mtandao</h3>
-          <ul style="text-align: left;">
-            <li>🏘️ WiFi vijijini na mjini</li>
-            <li>💸 Gharama nafuu</li>
-            <li>🔌 Ufungaji wa kitaalamu</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Maintenance & IoT -->
-    <div class="flip-card">
-      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-front">
-          <img src="Iot1.jpg" alt="IoT Front" class="card-image">
-          <h3>🛠️ Maintenance & IoT</h3>
-          <p>Gusa hapa kwa maelezo zaidi</p>
-        </div>
-        <div class="flip-card-back">
-          <img src="Iot2.jpg" alt="IoT Back" class="card-image">
-          <h3>Teknolojia za IoT</h3>
-          <ul style="text-align: left;">
-            <li>🏠 Sensa & Smart Home</li>
-            <li>🔧 Matengenezo ya vifaa</li>
-            <li>📶 Miradi ya kisasa ya IoT</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Usalama wa Mtandao -->
-    <div class="flip-card">
-      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-front">
-          <img src="Cybersecurity1.jpg" alt="Cyber Front" class="card-image">
-          <h3>🔐 Usalama wa Mtandao</h3>
-          <p>Gusa hapa kwa maelezo zaidi</p>
-        </div>
-        <div class="flip-card-back">
-          <img src="Cybersecurity2.jpg" alt="Cyber Back" class="card-image">
-          <h3>Cybersecurity & Protection</h3>
-          <ul style="text-align: left;">
-            <li>🛡️ Firewalls na Encryption</li>
-            <li>🧠 Elimu ya mashambulizi</li>
-            <li>🔍 Usalama wa data</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Uundaji wa Website & App -->
-    <div class="flip-card">
-      <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-front">
-          <img src="Web1.jpg" alt="Web Front" class="card-image">
-          <h3>🌐 Uundaji wa Web & App</h3>
-          <p>Gusa hapa kwa maelezo zaidi</p>
-        </div>
-        <div class="flip-card-back">
-          <img src="Web2.jpg" alt="Web Back" class="card-image">
-          <h3>Uundaji wa Tovuti</h3>
-          <ul style="text-align: left;">
-            <li>📱 App za biashara</li>
-            <li>🖥️ Tovuti za taasisi</li>
-            <li>🔗 Uwezo wa kujitanua kidigitali</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!-- 🔁 Rudia kwa Digitali, WiFi, IoT, Cybersecurity, Web/App... -->
+    <!-- Badilisha majina ya picha na huduma zako hapo juu -->
 
   </div>
 </section>
 
 <style>
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
   .flip-card {
     background-color: transparent;
-    width: 270px;
-    height: 360px;
+    width: 210px;
+    height: 380px;
     perspective: 1000px;
   }
 
@@ -327,14 +239,14 @@
     width: 100%;
     height: 100%;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     backface-visibility: hidden;
     background-color: white;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
   }
 
   .flip-card-back {
@@ -343,13 +255,41 @@
   }
 
   .card-image {
-    width: 100px;
-    height: 100px;
+    width: 85%;
+    height: auto;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .flip-note {
+    font-size: 0.9em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    transform: rotate(-2deg);
+    color: #555;
+  }
+
+  /* Animation ya Zoom In */
+  .animate-card {
+    animation: zoomInCard 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes zoomInCard {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 </style>
+ 
 
   </div>
 </section>
