@@ -470,32 +470,145 @@ opacity: 1;
   animation: zoomBounce 2.8s ease-out;
 }
 </style>
-   
-</style>
+  <!-- FLIP CARD GALLERY YA HARUNANET ISP -->
+<section class="flip-gallery" style="padding: 60px 20px; background-color: #f0f4f8; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
 
-    <!-- GALLERY YA HARUNANET ISP -->
-<section class="gallery-section" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center;">
-  <div class="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <img src="Haruna.jpg" alt="Huduma 1" class="gallery-img">
-    <img src="Haruna2.jpg" alt="Huduma 2" class="gallery-img">
-    <img src="Haruna3.jpg" alt="Huduma 3" class="gallery-img">
-    <img src="Haruna3b.jpg" alt="Huduma 3b" class="gallery-img">
-    <img src="Haruna4.jpg" alt="Huduma 4" class="gallery-img">
+  <!-- KADI 1 - HARUNANET BRAND CV -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna.jpg" alt="Haruna CV Branding" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          HarunaNet ISP ni zaidi ya huduma — ni daraja kati ya tech, usalama, na ubunifu. Kupitia Haruna Hussein Software, tunatoa mafunzo ya crypto, tunadhibiti mtandao kwa CISCO, na tunachora programu kwa Python & C++. Hii siyo CV tu, bali ni tamko la weledi. Jiunge nasi kwa safari ya kiteknolojia yenye uhalisia na mwanga wa kijani kibichi.
+        </p>
+      </div>
+    </div>
   </div>
+
+  <!-- KADI 2 - SWITCH YA IP NA ROUTER -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna2.jpg" alt="Router and Managed Switch" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          Switch yenye port 24 hupokea IP kutoka router kuu na kusambaza kwa vifaa ndani ya LAN. Tunatofautisha switch ya kawaida na managed switch — hii ni managed, inayoruhusu VLAN, QoS na monitoring. HarunaNet ISP hutumia vifaa hivi kuunda backbone ya mtandao wa kisasa.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KADI 3 - SWITCH MBILI ZIMEUNGANISHWA -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna3.jpg" alt="Switch Pairing" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          Switch mbili zimeunganishwa kama stack — mmoja hupokea IP, mwingine huipanua. Port 24 kwenye kila switch husambaza data kwa access point, kamera na servers. HarunaNet ISP hutumia muungano huu kwa redundancy na scalability ya LAN ya kisasa.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KADI 4 - GLOBE NA SIGNAL ZA MTANDAO -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna3b.jpg" alt="Global Connectivity Setup" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          Dunia haikai mbali tena — kupitia switch, router na fiber, HarunaNet ISP huifanya ije mkononi mwako. Globe mbele ya muundo wa vifaa inaonesha dhamira ya kufikisha internet ya kasi na uwazi kwa kila Mtanzania. Kila kebo ni daraja la mawasiliano la kesho.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KADI 5 - SERVER RACK KISANDUKU CHA DATA -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna4.jpg" alt="Server Infrastructure" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          Server rack ni moyo wa HarunaNet ISP — huhifadhi, kusambaza na kulinda data kwa usalama. Cables zilizopangwa kwa nidhamu ni ishara ya system imara. Tunahifadhi kila bit ya taarifa kwa uhakika wa huduma zetu kwa wateja.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KADI 6 - VIFAA VYA MTUMIAJI DUNIA MKONONI -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Haruna4b.jpg" alt="Digital Life Devices" class="flip-image">
+      </div>
+      <div class="flip-card-back">
+        <p>
+          Dunia nzima ya kiteknolojia sasa ipo mikononi mwako. Vifaa kama laptop, simu na tablet vinaunganishwa kwa teknolojia ya HarunaNet ISP. Gusa ⇉ <b>More info</b> <<<~- kuanzia <b>Picha ya Kwanza</b> ujifunze safari ya mtandao — kutoka kwenye server hadi screen yako. Badilisha maisha yako sasa!
+        </p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
+<!-- STYLES ZA FLIP CARDS -->
 <style>
-.gallery-img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 320px;
+  perspective: 1000px;
 }
 
-.gallery-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.flip-card-front {
+  background-color: #fff;
+}
+
+.flip-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.flip-card-back {
+  background-color: #3EB489;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 18px;
+  font-size: 15px;
+  overflow-y: auto;
+  line-height: 1.5;
 }
 </style>
   </div>
