@@ -473,11 +473,31 @@ opacity: 1;
    
 </style>
 
-  <div class="gallery">
-    <img src="Haruna.jpg" alt="Huduma 1">
-    <img src="Haruna2.jpg" alt="Huduma 2">
-    <img src="Haruna3.jpg" alt="Huduma 3">
-    <img src="Haruna4.jpg" alt="Huduma 4">
+    <!-- GALLERY YA HARUNANET ISP -->
+<section class="gallery-section" style="padding: 40px 20px; background-color: #f9f9f9; text-align: center;">
+  <div class="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    <img src="Haruna.jpg" alt="Huduma 1" class="gallery-img">
+    <img src="Haruna2.jpg" alt="Huduma 2" class="gallery-img">
+    <img src="Haruna3.jpg" alt="Huduma 3" class="gallery-img">
+    <img src="Haruna3b.jpg" alt="Huduma 3b" class="gallery-img">
+    <img src="Haruna4.jpg" alt="Huduma 4" class="gallery-img">
+  </div>
+</section>
+
+<style>
+.gallery-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+</style>
   </div>
 
   <section id="booking">
