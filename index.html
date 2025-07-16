@@ -470,11 +470,11 @@ opacity: 1;
   animation: zoomBounce 2.8s ease-out;
 }
 </style>
-  <!-- FLIP CARD GALLERY YA HARUNANET ISP -->
+<section><!-- FLIP CARD GALLERY MPYA YA HARUNANET ISP (RECTANGULAR DESIGN) -->
 <section class="flip-gallery" style="padding: 60px 20px; background-color: #f0f4f8; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
 
   <!-- KADI 1 - HARUNANET BRAND CV -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna.jpg" alt="Haruna CV Branding" class="flip-image">
@@ -488,7 +488,7 @@ opacity: 1;
   </div>
 
   <!-- KADI 2 - SWITCH YA IP NA ROUTER -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna2.jpg" alt="Router and Managed Switch" class="flip-image">
@@ -502,7 +502,7 @@ opacity: 1;
   </div>
 
   <!-- KADI 3 - SWITCH MBILI ZIMEUNGANISHWA -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna3.jpg" alt="Switch Pairing" class="flip-image">
@@ -516,7 +516,7 @@ opacity: 1;
   </div>
 
   <!-- KADI 4 - GLOBE NA SIGNAL ZA MTANDAO -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna3b.jpg" alt="Global Connectivity Setup" class="flip-image">
@@ -530,7 +530,7 @@ opacity: 1;
   </div>
 
   <!-- KADI 5 - SERVER RACK KISANDUKU CHA DATA -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna4.jpg" alt="Server Infrastructure" class="flip-image">
@@ -544,7 +544,7 @@ opacity: 1;
   </div>
 
   <!-- KADI 6 - VIFAA VYA MTUMIAJI DUNIA MKONONI -->
-  <div class="flip-card">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="Haruna4b.jpg" alt="Digital Life Devices" class="flip-image">
@@ -559,35 +559,36 @@ opacity: 1;
 
 </section>
 
-<!-- STYLES ZA FLIP CARDS -->
+<!-- FLIP CARD STYLES (RECTANGULAR + TOUCH FLIP) -->
 <style>
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 320px;
+  width: 360px;
+  height: 240px;
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 1.1s;
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg) scale(1.05);
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   backface-visibility: hidden;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
 
 .flip-card-front {
@@ -598,17 +599,16 @@ opacity: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
 }
 
 .flip-card-back {
   background-color: #3EB489;
   color: white;
   transform: rotateY(180deg);
-  padding: 18px;
+  padding: 20px;
   font-size: 15px;
+  line-height: 1.6;
   overflow-y: auto;
-  line-height: 1.5;
 }
 </style>
   </div>
