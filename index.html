@@ -615,14 +615,149 @@ opacity: 1;
 </style>
   </div>
 
-  <section id="booking">
-    <form>
-      <h3>📅 Booking Form</h3>
-      <input type="text" placeholder="Jina Kamili" required>
-      <input type="email" placeholder="Barua pepe" required>
-      <input type="text" placeholder="Huduma Unayotaka" required>
-      <button type="submit">Tuma</button>
+  <section><!-- BOOKING FORM YA HARUNANET ISP - TOLEO LA MWISHO LA KISANII NA RESPONSIVE -->
+<section id="booking" style="padding: 80px 20px; background: url('Form.jpg'); background-size: cover; background-position: center; backdrop-filter: blur(2px);">
+  <div class="booking-card">
+
+    <h2 class="booking-heading">📋 Tuma Ombi la Huduma</h2>
+    <p class="booking-subtext">Jaza fomu ili upokee huduma zetu za kisasa kwa haraka na uhakika. Tunakupokea kwa mikono miwili 💚</p>
+
+    <form action="https://formsubmit.co/harunahussein335@gmail.com" method="POST" onsubmit="showSuccessMessage(event)">
+      
+      <input type="text" name="Jina Kamili" placeholder="👤 Jina Kamili" required class="booking-input">
+
+      <select name="Huduma" required class="booking-input">
+        <option value="">🛠️ Chagua Huduma Unayotaka</option>
+        <option>Install Network</option>
+        <option>Fix Router</option>
+        <option>VPN Setup</option>
+        <option>IoT Support</option>
+        <option>Web Design</option>
+        <option>Other</option>
+      </select>
+
+      <input type="email" name="Email" placeholder="📧 Barua Pepe Yako" required class="booking-input">
+
+      <input type="tel" name="Simu" placeholder="📞 Namba ya Simu" required class="booking-input">
+
+      <textarea name="Maelezo Zaidi" placeholder="📄 Maelezo Zaidi kuhusu Ombi lako (hiari)" class="booking-input" style="height: 100px;"></textarea>
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Booking Mpya Kutoka Website yako">
+      <input type="hidden" name="_template" value="box">
+
+      <button type="submit" class="booking-button">
+        <span id="btnText">🚀 Tuma Ombi</span>
+      </button>
+
+      <p id="successMessage" class="booking-success">🎉 Ombi lako limepokelewa! Tutawasiliana nawe hivi karibuni.</p>
+
     </form>
+  </div>
+</section>
+
+<style>
+.booking-card {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1.4s ease-in;
+}
+
+.booking-heading {
+  color: #009688;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.booking-subtext {
+  color: #444;
+  font-size: 16px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.booking-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #3EB489;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  transition: border 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s ease-in;
+}
+
+.booking-input:focus {
+  border-color: #009688;
+  box-shadow: 0 0 10px rgba(0,150,136,0.3);
+  outline: none;
+}
+
+.booking-button {
+  background-color: #009688;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.booking-button:hover {
+  background-color: #00796B;
+  transform: scale(1.03);
+}
+
+.booking-success {
+  display: none;
+  color: green;
+  margin-top: 18px;
+  font-size: 15px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .booking-card {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .booking-heading {
+    font-size: 28px;
+  }
+
+  .booking-subtext {
+    font-size: 15px;
+  }
+}
+</style>
+
+<script>
+function showSuccessMessage(event) {
+  event.preventDefault();
+  document.querySelector(".booking-button").disabled = true;
+  document.getElementById("btnText").textContent = "⏳ Inatuma...";
+  document.getElementById("successMessage").style.display = "block";
+  setTimeout(() => {
+    event.target.submit();
+  }, 1500);
+}
+</script>
   </section>
 
   <section id="vision">
