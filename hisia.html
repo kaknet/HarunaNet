@@ -52,21 +52,62 @@
     }
   </style>
 </head>
-<body><!-- Kipengele cha Kamera Detector -->
-<section id="hisiaKamera">
+<body><!-- HEDA YA JUU -->
+<section id="hisiaIntro" style="background-color:#e6f0ff; padding:20px; text-align:center;">
+  <img src="Cam1.jpg" alt="Kamera ya Hisia" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px;">
+  <h2 style="color:#0066cc; margin-top:10px;">Jaza Fomu → Tambua Hisia Zako na Tabia kwa Kamera</h2>
+  <p style="color:#333;">Pata tathmini ya kihisia kupitia kamera ya kifaa chako. Mchakato wa haraka na wa moja kwa moja wa kutambua hisia na tabia.</p>
+</section>
+
+<!-- KAMERA DETECTOR -->
+<section id="hisiaKamera" style="text-align:center; padding:20px;">
   <h3>📷 Tambua Hisia Zako kwa Kamera</h3>
-  <video id="video" width="320" height="240" autoplay></video><br>
-  <button onclick="capture()">Tambua Hisia</button>
+  <video id="video" width="320" height="240" autoplay style="border:2px solid #3399ff; border-radius:10px;"></video><br><br>
+  <button onclick="capture()" style="padding:10px 20px; background-color:#0066cc; color:white; border:none; border-radius:5px;">Tambua Hisia</button>
   <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
   <p id="emotionResult">Kamera inasubiri ruhusa...</p>
 </section>
 
+<!-- GALLERY YA FLIP CARDS -->
+<section id="hisiaGallery" style="background-color:#e6f0ff; padding:30px 10px; text-align:center; border-top:2px solid #3399ff;">
+  <h3 style="color:#0066cc;">🖼️ Gallery ya Hisia na Teknolojia</h3>
+  <div class="flip-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+    
+    <!-- Kadi ya Kwanza -->
+    <div class="flip-card" style="background-color:transparent; width:280px; height:200px; perspective:1000px;">
+      <div class="flip-card-inner" style="position:relative; width:100%; height:100%; transition:transform 0.8s; transform-style:preserve-3d;">
+        <div class="flip-card-front" style="position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+          <img src="intel1.jpg" alt="Intel Hisia 1" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="flip-card-back" style="position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.2); background-color:#ffffff; color:#333; transform:rotateY(180deg); padding:15px; box-sizing:border-box;">
+          <h4>Hisia ya Ndani</h4>
+          <p>Teknolojia inapotambua tabasamu lako, hujenga muunganiko wa kweli.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kadi ya Pili -->
+    <div class="flip-card" style="background-color:transparent; width:280px; height:200px; perspective:1000px;">
+      <div class="flip-card-inner" style="position:relative; width:100%; height:100%; transition:transform 0.8s; transform-style:preserve-3d;">
+        <div class="flip-card-front" style="position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+          <img src="intel2.jpg" alt="Intel Hisia 2" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="flip-card-back" style="position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.2); background-color:#ffffff; color:#333; transform:rotateY(180deg); padding:15px; box-sizing:border-box;">
+          <h4>Video ya Hisia</h4>
+          <video src="hisiaVideo.mp4" controls width="100%"></video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCRIPT YA KAMERA -->
 <script>
   const video = document.getElementById('video');
   const canvas = document.getElementById('canvas');
   const emotionResult = document.getElementById('emotionResult');
 
-  // Fungua kamera
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
       video.srcObject = stream;
@@ -86,11 +127,12 @@
     const hisia = "furaha"; // Hii itabadilika baadaye na AI
     emotionResult.innerText = "🔄 Tunasoma hisia zako... (feature inakuja)";
 
-    // Jaza kwenye form ya hisia
     const hisiaSelect = document.getElementById('hisia');
     if (hisiaSelect) {
       hisiaSelect.value = hisia;
     }
+  }
+</script>
   }
 </script>
 
