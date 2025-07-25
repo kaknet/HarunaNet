@@ -52,7 +52,47 @@
     }
   </style>
 </head>
-<body>
+<body><!-- Kipengele cha Kamera Detector -->
+<section id="hisiaKamera">
+  <h3>📷 Tambua Hisia Zako kwa Kamera</h3>
+  <video id="video" width="320" height="240" autoplay></video><br>
+  <button onclick="capture()">Tambua Hisia</button>
+  <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+  <p id="emotionResult">Kamera inasubiri ruhusa...</p>
+</section>
+
+<script>
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const emotionResult = document.getElementById('emotionResult');
+
+  // Fungua kamera
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+      video.srcObject = stream;
+      emotionResult.innerText = "✅ Kamera iko tayari. Bonyeza kutambua hisia.";
+    })
+    .catch(err => {
+      console.error("Kosa la kamera:", err);
+      emotionResult.innerText = "❌ Kamera haikufunguka. Tafadhali ruhusu kamera kwenye browser yako.";
+    });
+
+  function capture() {
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageData = canvas.toDataURL('image/png');
+
+    // Placeholder ya AI
+    const hisia = "furaha"; // Hii itabadilika baadaye na AI
+    emotionResult.innerText = "🔄 Tunasoma hisia zako... (feature inakuja)";
+
+    // Jaza kwenye form ya hisia
+    const hisiaSelect = document.getElementById('hisia');
+    if (hisiaSelect) {
+      hisiaSelect.value = hisia;
+    }
+  }
+</script>
 
 <h2 style="text-align:center;">🧠 Tathmini ya Tabia na Hisia za Mteja</h2>
 
