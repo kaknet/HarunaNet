@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tathmini ya Hisia na Tabia za Mteja</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f1f1;
+      padding: 20px;
+    }
+    form, .results, .camera {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #00796B;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004D40;
+    }
+    #spinner {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+      font-style: italic;
+      color: #555;
+    }
+    @media screen and (max-width: 600px) {
+      form, .results, .camera {
+        padding: 15px;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">🧠 Tathmini ya Tabia na Hisia za Mteja</h2>
+
+<!-- CAMERA SECTION -->
+<div class="camera">
+  <video id="video" autoplay muted playsinline></video>
+  <button onclick="captureMood()">📷 Tambua Hisia za Uso</button>
+  <p id="spinner">⏳ Inatambua hisia...</p>
+  <p id="moodResult">Hisia hazijachambuliwa bado.</p>
+</div>
+
+<!-- FORM SECTION -->
+<form id="tathminiForm">
+  <label>Jina:</label><br />
+  <input type="text" name="name" required><br /><br />
+
+  <label>Umri:</label><br />
+  <input type="number" name="age" required min="1" max="120"><br /><br />
+
+  <label>Kazi:</label><br />
+  <input type="text" name="occupation"><br /><br />
+
+  <label>Empathy (0-100):</label><br />
+  <input type="number" name="empathyLevel" required min="0" max="100"><br /><br />
+
+  <label>Patience (0-100):</label><br />
+  <input type="number" name="patienceLevel" required min="0" max="100"><br /><br />
+
+  <button type="submit">📨 Tuma Tathmini</button>
+</form>
+
+<!-- RESULT SECTION -->
+<div class="results" id="output"></div>
+
+<script>
+  const video = document.getElementById("video");
+  let moodDetected = "Haijachambuliwa";
+
+  // Load models
+  Promise.all([
+    faceapi.nets.tinyFaceDetector.loadFromUri("https://cdn.jsdelivr.net/npm/face-api.js/models"),
+    faceapi.nets.faceExpressionNet.loadFromUri("https://cdn.jsdelivr.net/npm/face-api.js/models")
+  ]).then(startVideo);
+
+  function startVideo() {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream)
+      .catch(err => console.error("Camera error:", err));
+  }
+
+  async function captureMood() {
+    document.getElementById("spinner").style.display = "block";
+    const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+    document.getElementById("spinner").style.display = "none";
+
+    if (detections && detections.expressions) {
+      const sorted = Object.entries(detections.expressions).sort((a, b) => b[1] - a[1]);
+      moodDetected = sorted[0][0]; // e.g. "happy", "sad"
+      document.getElementById("moodResult").innerText = "Hisia zilizogunduliwa: " + moodDetected;
+    } else {
+      document.getElementById("moodResult").innerText = "Uso haujatambuliwa.";
+    }
+  }
+
+  document.getElementById("tathminiForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = new FormData(this);
+    let summary = "<h3>📋 Matokeo ya Mtumiaji</h3><ul>";
+    for (let [key, value] of form.entries()) {
+      summary += `<li><strong>${key}</strong>: ${value}</li>`;
+    }
+    summary += `<li><strong>Hisia za Uso:</strong> ${moodDetected}</li></ul>`;
+    document.getElementById("output").innerHTML = summary;
+
+    // Optional: Send to backend via HTTPS
+    fetch("https://harunanet-api.onrender.com/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.get("name"),
+        age: form.get("age"),
+        occupation: form.get("occupation"),
+        empathyLevel: form.get("empathyLevel"),
+        patienceLevel: form.get("patienceLevel"),
+        mood: moodDetected
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Response:", data))
+    .catch(err => console.error("Send error:", err));
+  });
+</script>
+
+</body>
+</html>
