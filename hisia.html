@@ -172,52 +172,7 @@
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="intel2.jpg" alt="Intel Hisia 2">
-        </div>
-        <div> class="flip-card-back">
-          <h4>Video ya Hisia</h4>
-          <p>
-            Usalama wa tabia unahitaji utulivu wa kiakili. Kamera inaweza kufahamu unafikiria nini. HarunaNet inakupa nafasi ya kujitambua na kujilinda.
-          </p>
-          <video src="hisiaVideo.mp4" controls width="100%" style="margin-top:10px;"></video>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SCRIPT YA KAMERA -->
-<script>
-  const video = document.getElementById('video');
-  const canvas = document.getElementById('canvas');
-  const emotionResult = document.getElementById('emotionResult');
-
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-      video.srcObject = stream;
-      emotionResult.innerText = "✅ Kamera iko tayari. Bonyeza kutambua hisia.";
-    })
-    .catch(err => {
-      console.error("Kosa la kamera:", err);
-      emotionResult.innerText = "❌ Kamera haikufunguka. Tafadhali ruhusu kamera kwenye browser yako.";
-    });
-
-  function capture() {
-    const context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    const imageData = canvas.toDataURL('image/png');
-
-    const hisia = "furaha"; // Placeholder ya AI
-    emotionResult.innerText = "🔄 Tunasoma hisia zako... (feature inakuja)";
-
-    const hisiaSelect = document.getElementById('hisia');
-    if (hisiaSelect) {
-      hisiaSelect.value = hisia;
-    }
-  }
-</script>
-
-</script>
+ hapa ndio
 
 </script>
 
