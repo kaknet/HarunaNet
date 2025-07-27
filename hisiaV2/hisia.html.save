@@ -240,17 +240,5 @@
         mood: moodDetected
       })
     })
-.then(res => res.json())
-    .then(data => {
-      console.log("Response:", data);
-      document.getElementById("output").innerHTML += `<p><em>✅ Taarifa zimepokelewa na kuhifadhiwa salama.</em></p>`;
-    })
-    .catch(err => {
-      console.error("Send error:", err);
-      document.getElementById("output").innerHTML += `<p><em>⚠️ Hitilafu katika kutuma taarifa.</em></p>`;
-    });
-  });
-</script>
-
-</body>
-</html>
+    .then(res => res.json())
+   [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ANKUSHUIKEY03/PROJECT/tree/221d8441d730bfb8ee62530b975fad78455295e4/product.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/JulieAllix/projet-grocereaz/tree/5c84a136d4e34da89ba4318393e6da90ea9b3f19/Frontend%2Fsrc%2Fcomponents%2FAboutUs%2FTest1%2FAb
