@@ -217,7 +217,60 @@
       font-weight: bold;
       color: #333;
     }
-  </style>
+  </style>/* CSS */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 50vh;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flip-card-front img, .flip-card-back img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background-color: #f0f8ff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-content {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.description {
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+}
 </head>
 <body><!-- HEDA: Tambua Hisia Zako -->
 <section class="hero-section">
@@ -236,49 +289,52 @@
     </p>
     <a href="#form" class="hero-button">Jaza Fomu →</a>
   </div>
-</section>
-
-<header>
-  <img src="logo.png" alt="HarunaNet Logo" />
-  <h1>Tathmini ya Hisia na Tabia</h1>
-</header>
-
-<section class="gallery">
-  <!-- Flip Card 1 -->
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="intel2.jpg" alt="Picha ya Mbele 1" />
-      </div>
-      <div class="flip-card-back">
-        <img src="Form.jpg" alt="Picha ya Nyuma 1" />
-        <div class="content">
-          <h3>Maelezo ya Hisia</h3>
+</section><!-- HTML -->
+<div class="flip-card" onclick="toggleFlip(this)">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="intel2.jpg" alt="Front 1">
+    </div>
+    <div class="flip-card-back">
+      <div class="scroll-content">
+        <img src="Form.jpg" alt="Back 1">
+        <div class="description">
+          <h3>Maelezo ya Kadi ya Kwanza</h3>
           <p>
-            Hii ni kadi ya kwanza ya hisia. Inaonyesha hali ya furaha au utulivu wa mteja. Maelezo haya yanaweza kuwa marefu, kwa hiyo unaweza kuburuta chini kuona yote. Tathmini hii husaidia kuelewa tabia ya mteja kwa undani zaidi.
+            Huduma ya HarunaNet ni ya kipekee. Tunazingatia usalama, ubunifu, na mahitaji ya jamii.
+            <br><br>
+            - Mtandao wa kasi<br>
+            - Huduma ya ushauri<br>
+            - Fomu ya maoni iko hapa
           </p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Flip Card 2 -->
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="intel3.jpg" alt="Picha ya Mbele 2" />
-      </div>
-      <div class="flip-card-back">
-        <img src="Form2.jpg" alt="Picha ya Nyuma 2" />
-        <div class="content">
-          <h3>Maelezo ya Tabia</h3>
+<div class="flip-card" onclick="toggleFlip(this)">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="intel3.jpg" alt="Front 2">
+    </div>
+    <div class="flip-card-back">
+      <div class="scroll-content">
+        <img src="Form2.jpg" alt="Back 2">
+        <div class="description">
+          <h3>Maelezo ya Kadi ya Pili</h3>
           <p>
-            Hii ni kadi ya pili ya hisia. Inaweza kuonyesha hali ya hasira, huzuni, au kutokuwa na hisia. Maelezo haya yanaeleza jinsi ya kushughulikia tabia hiyo kwa njia ya kitaalamu na yenye huruma. Tumia scrollbar kusoma maelezo yote.
+            HarunaNet inakuza vipaji vya vijana kupitia teknolojia. Tunatoa mafunzo na fursa za kujifunza.
+            <br><br>
+            - Mafunzo ya coding<br>
+            - Ushirikiano wa kijamii<br>
+            - Kujenga mustakabali bora
           </p>
         </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <section class="camera-section">
