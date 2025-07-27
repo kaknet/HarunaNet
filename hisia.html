@@ -291,51 +291,108 @@
     </p>
     <a href="#form" class="hero-button">Jaza Fomu →</a>
   </div>
-</section><!-- HTML -->
-<div class="flip-card" onclick="toggleFlip(this)">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="intel2.jpg" alt="Front 1">
-    </div>
-    <div class="flip-card-back">
-      <div class="scroll-content">
-        <img src="Form.jpg" alt="Back 1">
-        <div class="description">
-          <h3>Maelezo ya Kadi ya Kwanza</h3>
-          <p>
-            Huduma ya HarunaNet ni ya kipekee. Tunazingatia usalama, ubunifu, na mahitaji ya jamii.
-            <br><br>
-            - Mtandao wa kasi<br>
-            - Huduma ya ushauri<br>
-            - Fomu ya maoni iko hapa
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="flip-card" onclick="toggleFlip(this)">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="intel3.jpg" alt="Front 2">
-    </div>
-    <div class="flip-card-back">
-      <div class="scroll-content">
-        <img src="Form2.jpg" alt="Back 2">
-        <div class="description">
-          <h3>Maelezo ya Kadi ya Pili</h3>
+</section>
+
+<style>
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #0077be, #00c6ff);
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-front img, .card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.card-back .scroll-content {
+  padding: 15px;
+  overflow-y: auto;
+  flex: 1;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+</style>
+
+<div class="gallery">
+
+  <!-- Kadi ya Kwanza -->
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="intel1.jpg" alt="Intel Front">
+      </div>
+      <div class="card-back">
+        <img src="Cam2.jpg" alt="Cam Background">
+        <div class="scroll-content">
           <p>
-            HarunaNet inakuza vipaji vya vijana kupitia teknolojia. Tunatoa mafunzo na fursa za kujifunza.
-            <br><br>
-            - Mafunzo ya coding<br>
-            - Ushirikiano wa kijamii<br>
-            - Kujenga mustakabali bora
+            Maelezo ya kina kuhusu kadi ya kwanza. Scroll inaruhusu kusoma bila kuvuruga layout.
           </p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Kadi ya Pili -->
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="intel2.jpg" alt="Intel2 Front">
+      </div>
+      <div class="card-back">
+        <img src="form.jpg" alt="Form Background">
+        <div class="scroll-content">
+          <p>
+            Maelezo ya pili yanaweza kuwa marefu pia. Unaweza kuongeza maelezo ya huduma, historia ya HarunaNet ISP, au maelezo ya kiufundi hapa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </section>
 
