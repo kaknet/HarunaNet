@@ -4,102 +4,224 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tambua Hisia Zako</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- face-api.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
   <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-.hero-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
 
-.hero-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  max-width: 600px;
-}
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
 
-.hero-button {
-  padding: 10px 20px;
-  background-color: #0077cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
+    .hero-button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
 
-.logo-area {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .logo-area {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.logo-area img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
+    .logo-area img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
 
-.logo-text {
-  color: white;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-</style>
+    .logo-text {
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
 
-<section class="hero-section">
-  <img src="Cam1.jpg" alt="Camera Background" />
+    .form-section {
+      padding: 40px;
+      background-color: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
 
-  <div class="hero-overlay">
-    <h1 class="hero-title">Tambua Hisia Zako na Tabia</h1>
-    <p class="hero-subtitle">
-      Pata tathmini ya kihisia kupitia kamera yako ya kifaa.  
-      Mchakato wa haraka na wa moja kwa moja wa kutambua tabia.
-    </p>
-    <a href="#form" class="hero-button">Jaza Fomu →</a>
-  </div>
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-  <div class="logo-area">
-    <img src="Haruna.jpg" alt="Haruna Logo" />
-    <div class="logo-text">Heshima. Uaminifu. HarunaNet</div>
-  </div>
+    .form-section input,
+    .form-section select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .camera-section {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <img src="Cam1.jpg" alt="Camera Background" />
+
+    <div class="hero-overlay">
+      <h1 class="hero-title">Tambua Hisia Zako na Tabia</h1>
+      <p class="hero-subtitle">
+        Pata tathmini ya kihisia kupitia kamera yako ya kifaa.  
+        Mchakato wa haraka na wa moja kwa moja wa kutambua tabia.
+      </p>
+      <a href="#form" class="hero-button">Jaza Fomu →</a>
+    </div>
+
+    <div class="logo-area">
+      <img src="Haruna.jpg" alt="Haruna Logo" />
+      <div class="logo-text">Heshima. Uaminifu. HarunaNet</div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="form">
+    <h2>Fomu ya Tathmini</h2>
+    <form>
+      <input type="text" placeholder="Jina Kamili" required />
+      <input type="email" placeholder="Barua Pepe" required />
+      <select required>
+        <option value="">Chagua Hisia</option>
+        <option value="furaha">Furaha</option>
+        <option value="huzuni">Huzuni</option>
+        <option value="hasira">Hasira</option>
+        <option value="hofu">Hofu</option>
+        <option value="kushangaa">Kushangaa</option>
+      </select>
+      <button type="submit">Tuma Tathmini</button>
+    </form>
+  </section>
+
+  <!-- CAMERA -->
+  <section class="camera-section">
+    <h2>Tazama Uso Wako</h2>
+    <video id="video" autoplay muted></video>
+    <canvas id="canvas"></canvas>
+  </section>
+
+  <script>
+    const video = document.getElementById('video');
+
+    Promise.all([
+      faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models'),
+      faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models')
+    ]).then(startVideo);
+
+    function startVideo() {
+      navigator.mediaDevices.getUserMedia({ video: {} })
+        .then(stream => video.srcObject = stream)
+        .catch(err => console.error("Camera access denied:", err));
+    }
+
+    video.addEventListener('play', () => {
+      const canvas = faceapi.createCanvasFromMedia(video);
+      document.body.append(canvas);
+      const displaySize = { width: video.width, height: video.height };
+      faceapi.matchDimensions(canvas, displaySize);
+
+      setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+        const resized = faceapi.resizeResults(detections, displaySize);
+        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        faceapi.draw.drawDetections(canvas, resized);
+        faceapi.draw.drawFaceExpressions(canvas, resized);
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
 </section>
 <style>
 .gallery {
@@ -230,43 +352,4 @@ body {
 
 
 </section>
-
-<section class="camera-section">
-  <video id="video" autoplay muted playsinline></video>
-  <button onclick="captureMood()">📷 Tambua Hisia za Uso</button>
-  <p id="spinner">⏳ Inatambua hisia...</p>
-  <p id="moodResult">Hisia hazijachambuliwa bado.</p>
-</section>
-
-<script>
-  const video = document.getElementById("video");
-  let moodDetected = "Haijachambuliwa";
-
-  Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri("https://cdn.jsdelivr.net/npm/face-api.js/models"),
-    faceapi.nets.faceExpressionNet.loadFromUri("https://cdn.jsdelivr.net/npm/face-api.js/models")
-  ]).then(startVideo);
-
-  function startVideo() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => video.srcObject = stream)
-      .catch(err => console.error("Camera error:", err));
-  }
-
-  async function captureMood() {
-    document.getElementById("spinner").style.display = "block";
-    const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
-    document.getElementById("spinner").style.display = "none";
-
-    if (detections && detections.expressions) {
-      const sorted = Object.entries(detections.expressions).sort((a, b) => b[1] - a[1]);
-      moodDetected = sorted[0][0];
-      document.getElementById("moodResult").innerText = "Hisia zilizogunduliwa: " + moodDetected;
-    } else {
-      document.getElementById("moodResult").innerText = "Uso haujatambuliwa.";
-    }
-  }
-</script>
-
-</body>
-</html>
+ 
