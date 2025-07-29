@@ -206,42 +206,7 @@
       <button type="submit">Tuma Tathmini</button>
     </form>
   </section>
-
-  <!-- CAMERA -->
-  <section class="camera-section">
-    <h2>Tazama Uso Wako</h2>
-    <video id="video" autoplay muted></video>
-    <canvas id="canvas"></canvas>
-  </section>
-
-  <script>
-    const video = document.getElementById('video');
-
-    Promise.all([
-      faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models'),
-      faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models')
-    ]).then(startVideo);
-
-    function startVideo() {
-      navigator.mediaDevices.getUserMedia({ video: {} })
-        .then(stream => video.srcObject = stream)
-        .catch(err => console.error("Camera access denied:", err));
-    }
-
-    video.addEventListener('play', () => {
-      const canvas = faceapi.createCanvasFromMedia(video);
-      document.body.append(canvas);
-      const displaySize = { width: video.width, height: video.height };
-      faceapi.matchDimensions(canvas, displaySize);
-
-      setInterval(async () => {
-        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
-        const resized = faceapi.resizeResults(detections, displaySize);
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        faceapi.draw.drawDetections(canvas, resized);
-        faceapi.draw.drawFaceExpressions(canvas, resized);
-      }, 1000);
-    });
+ 
   </script>
 
 </body>
