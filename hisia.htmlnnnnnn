@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tambua Hisia Zako</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- face-api.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+  <style>
+   .emotion-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.scan-button {
+  display: inline-block;
+  background-color: #0077cc;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.scan-button:hover {
+  background-color: #005fa3;
+}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .hero-button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .logo-area {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-area img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .form-section {
+      padding: 40px;
+      background-color: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-section input,
+    .form-section select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .camera-section {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <img src="Cam1.jpg" alt="Camera Background" />
+
+    <div class="hero-overlay">
+      <h1 class="hero-title">Tambua Hisia Zako na Tabia</h1>
+      <p class="hero-subtitle">
+        Pata tathmini ya kihisia kupitia kamera yako ya kifaa.  
+        Mchakato wa haraka na wa moja kwa moja wa kutambua tabia.
+      </p>
+      <a href="#form" class="hero-button">Jaza Fomu →</a>
+    </div>
+
+    <div class="logo-area">
+      <img src="Haruna.jpg" alt="Haruna Logo" />
+      <div class="logo-text">Heshima. Uaminifu. HarunaNet</div>
+    </div>
+  </section>
+   <div class="emotion-header">
+  <h2>Uchunguzi wa Hisia za AI</h2>
+  <a href="camera.html" class="scan-button">Anza Uchunguzi wa Uso →</a>
+</div>
+
+  <!-- FORM -->
+  <section class="form-section" id="form">
+    <h2>Fomu ya Tathmini</h2>
+    <form>
+      <input type="text" placeholder="Jina Kamili" required />
+      <input type="email" placeholder="Barua Pepe" required />
+      <select required>
+        <option value="">Chagua Hisia</option>
+        <option value="furaha">Furaha</option>
+        <option value="huzuni">Huzuni</option>
+        <option value="hasira">Hasira</option>
+        <option value="hofu">Hofu</option>
+        <option value="kushangaa">Kushangaa</option>
+      </select>
+      <button type="submit">Tuma Tathmini</button>
+    </form>
+  </section>
+
+  <!-- CAMERA -->
+  <section class="camera-section">
+    <h2>Tazama Uso Wako</h2>
+    <video id="video" autoplay muted></video>
+    <canvas id="canvas"></canvas>
+  </section>
+
+  <script>
+    const video = document.getElementById('video');
+
+    Promise.all([
+      faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models'),
+      faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models')
+    ]).then(startVideo);
+
+    function startVideo() {
+      navigator.mediaDevices.getUserMedia({ video: {} })
+
+  </script>
+
+</body>
+</html>
+</section>
+<style>
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #0077be, #00c6ff);
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ✅ Marekebisho ya ujazo wa picha ya mbele */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Picha ya nyuma ibaki kama ilivyokuwa */
+.card-back img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.card-back .scroll-content {
+  padding: 15px;
+  overflow-y: auto;
+  flex: 1;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+</style>
+
+<div class="gallery">
+
+  <!-- Kadi ya Kwanza -->
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Intel1.jpg" alt="Intel1 Front">
+      </div>
+      <div class="card-back">
+        <img src="Cam2.jpg" alt="Cam2 Background">
+        <div class="scroll-content">
+          <p>
+            HarunaNet ISP inalenga kuwainua vijana wa Zanzibar kupitia teknolojia.  
+            Tunatoa huduma za mtandao wa kasi, usalama wa mtandao, na fursa za mafunzo ya kidijitali.  
+            <br><br>
+            - Mafunzo ya HTML, CSS, Python  
+            - Huduma ya ushauri wa tech kwa jamii  
+            - Kujenga kizazi cha wabunifu wa Afrika  
+            - Tunazingatia ethics, privacy, na empowerment  
+            <br><br>
+            Jiunge nasi leo na uanze safari yako ya kiteknolojia!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kadi ya Pili -->
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Intel2.jpg" alt="Intel2 Front">
+      </div>
+      <div class="card-back">
+        <img src="Form.jpg" alt="Form Background">
+        <div class="scroll-content">
+          <p>
+            HarunaNet ISP ni ndoto iliyozaliwa kutoka kwa mlinzi mwenye maono makubwa.  
+            Tumejenga jukwaa la kiteknolojia linalowezesha vijana, jamii, na biashara ndogo.  
+            <br><br>
+            - Historia ya kujifunza kwa bidii na kushirikisha wengine  
+            - Maono ya ethical AI na huduma za kibinadamu  
+            - Tunatengeneza apps za usalama, elimu, na uchambuzi wa tabia  
+            - HarunaNet ni zaidi ya ISP — ni harakati ya mabadiliko  
+            <br><br>
+            Karibu kwenye HarunaNet: mahali ambapo teknolojia hukutana na utu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</section>
+ 

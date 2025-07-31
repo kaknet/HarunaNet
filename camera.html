@@ -1,146 +1,138 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Utambuzi wa Hisia - Haruna AI</title>
-  <link rel="icon" href="Haruna.jpg" type="image/jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mtambuzi wa Hisia - Haruna AI</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0077be, #00c6ff);
-      color: white;
-      text-align: center;
-      padding-bottom: 50px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f8;
+      color: #333;
     }
+
     header {
-      background-color: rgba(0, 0, 0, 0.4);
+      background: url('Intel1.jpg') no-repeat center center/cover;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 20px;
-      border-bottom: 3px solid #fff;
     }
-    header img {
-      width: 80px;
-      height: 80px;
+
+    .logo {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 2px solid white;
+      border: 3px solid white;
+      object-fit: cover;
     }
-    header h1 {
-      margin: 10px 0 5px;
+
+    .header-text {
+      text-align: left;
       color: orange;
     }
-    header p {
-      font-style: italic;
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 24px;
+      color: orange;
+    }
+
+    .header-text p {
+      margin: 5px 0 0;
       font-size: 16px;
+      color: white;
     }
-    #camera-section {
-      margin: 30px auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      max-width: 500px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+    .scanner-section {
+      text-align: center;
+      padding: 40px 20px;
     }
+
+    .scanner-section h2 {
+      color: #0a3d62;
+    }
+
+    #videoContainer {
+      margin-top: 20px;
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid #0a3d62;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
     video {
       width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      height: 100%;
+      object-fit: cover;
     }
+
     button {
-      margin-top: 15px;
-      padding: 10px 25px;
-      background-color: #005f99;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #hisia, #ushauri {
       margin-top: 20px;
-      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #0a3d62;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0a3d62;
+      color: white;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="Haruna.jpg" alt="HarunaNet Logo">
-    <h1>WELCOME TO HARUNA AI</h1>
-    <p>Mtambuzi wa Hisia kwa Kamera</p>
+    <div class="header-text">
+      <h1>WELCOME TO HARUNA AI</h1>
+      <p>Mtambuzi wa Hisia kwa Kamera</p>
+    </div>
+    <img src="Haruna.jpg" alt="Haruna Logo" class="logo"/>
   </header>
 
-  <section id="camera-section">
-    <h2>Tazama Uso Wako</h2>
-    <video id="video" autoplay muted playsinline></video>
-    <button onclick="startScan()">Anza Scan</button>
-    <div id="hisia"></div>
-    <div id="ushauri"></div>
+  <section class="scanner-section">
+    <h2>Bofya Anza Scan ya Uso</h2>
+    <button onclick="startCamera()">Anza Scan</button>
+    <div id="videoContainer">
+      <video id="video" autoplay playsinline></video>
+    </div>
   </section>
 
-  <!-- Script za AI -->
-  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <footer>
+    Zanzibar - Tanzania 🇹🇿<br/>
+    Powered by HarunaNet & GitHub Pages 2025
+  </footer>
+
   <script>
-    const video = document.getElementById('video');
-    const hisiaDiv = document.getElementById('hisia');
-    const ushauriDiv = document.getElementById('ushauri');
-
-    async function startScan() {
-      // Load models
-      await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
-      await faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
-
-      // Start camera
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      video.srcObject = stream;
-
-      video.addEventListener('play', () => {
-        const canvas = faceapi.createCanvasFromMedia(video);
-        document.getElementById('camera-section').append(canvas);
-        const displaySize = { width: video.width, height: video.height };
-        faceapi.matchDimensions(canvas, displaySize);
-
-        setInterval(async () => {
-          const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
-          canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-          faceapi.draw.drawDetections(canvas, detections);
-
-          if (detections.length > 0) {
-            const exp = detections[0].expressions;
-            const emotion = Object.keys(exp).reduce((a, b) => exp[a] > exp[b] ? a : b);
-            hisiaDiv.innerText = "Hisia Zilizogundulika: " + emotion;
-
-            let ushauri = "";
-            switch (emotion) {
-              case "happy":
-                ushauri = "Hongera! Endelea kufurahia maisha yako 😊";
-                break;
-              case "sad":
-                ushauri = "Pole sana. Jaribu kupumzika na kuzungumza na rafiki.";
-                break;
-              case "angry":
-                ushauri = "Pumua kwa kina. Tafuta mazingira ya utulivu. 😡👉😌";
-                break;
-              case "surprised":
-                ushauri = "Kuna jambo la kushangaza? Chukua muda kulitafakari.";
-                break;
-              case "disgusted":
-                ushauri = "Inaonekana kuna kitu hakikupendeza. Tafuta njia ya kusafisha fikra zako.";
-                break;
-              case "fearful":
-                ushauri = "Usiogope. Kila kitu kitaenda sawa. Omba Mungu.";
-                break;
-              default:
-                ushauri = "Endelea kujiangalia kwa karibu zaidi...";
-            }
-            ushauriDiv.innerText = "🧠 Ushauri: " + ushauri;
-          } else {
-            hisiaDiv.innerText = "Hakuna uso ulioonekana. Jaribu tena.";
-            ushauriDiv.innerText = "";
-          }
-        }, 2000);
-      });
+    function startCamera() {
+      const video = document.getElementById('video');
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function(err) {
+          alert("Kamera haikufunguka: " + err);
+        });
+      } else {
+        alert("Kifaa chako hakiungi mkono kamera.");
+      }
     }
   </script>
 
