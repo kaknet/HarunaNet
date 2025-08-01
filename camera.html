@@ -190,34 +190,79 @@
     }
   });
 </script>
-    <button onclick="startCamera()">Anza Scan</button>
-    <div id="videoContainer">
-      <video id="video" autoplay playsinline></video>
-    </div>
-  </section>
+<div id="videoContainer">
+  <div class="camera-overlay" id="cameraOverlay">
+    <img src="Scam.jpg" alt="Camera Icon" class="camera-icon" />
+  </div>
+  <video id="video" autoplay playsinline></video>
+</div>
 
-  <footer>
-    Zanzibar - Tanzania 🇹🇿<br/>
-    Powered by HarunaNet & GitHub Pages 2025
-  </footer>
+<style>
+  #videoContainer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
 
-  <script>
-    function startCamera() {
-      const video = document.getElementById('video');
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
+  #video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .camera-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .camera-overlay.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  function startCamera() {
+    const video = document.getElementById('video');
+    const overlay = document.getElementById('cameraOverlay');
+
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
           video.srcObject = stream;
           video.play();
+          overlay.classList.add('hidden');
         })
         .catch(function(err) {
           alert("Kamera haikufunguka: " + err);
         });
-      } else {
-        alert("Kifaa chako hakiungi mkono kamera.");
-      }
+    } else {
+      alert("Kifaa chako hakiungi mkono kamera.");
     }
-  </script>
+  }
+</script>
+ 
 
 </body>
 </html>
