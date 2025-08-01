@@ -197,11 +197,13 @@
   <video id="video" autoplay playsinline></video>
 </div>
 
+<button onclick="startCamera()" class="scan-button">Anza Scan Uso</button>
+
 <style>
   #videoContainer {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     margin: 20px auto;
     border-radius: 50%;
     overflow: hidden;
@@ -230,15 +232,34 @@
   }
 
   .camera-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.85;
     transition: opacity 0.3s ease;
   }
 
   .camera-overlay.hidden {
     display: none;
+  }
+
+  .scan-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+  }
+
+  .scan-button:hover {
+    background-color: darkorange;
   }
 </style>
 
@@ -261,6 +282,7 @@
       alert("Kifaa chako hakiungi mkono kamera.");
     }
   }
+</script> 
 </script>
  
 
