@@ -109,7 +109,33 @@
     }
   </style>
 </head>
-<body>
+<body> <video id="video" autoplay playsinline style="width: 300px; border-radius: 50%; border: 2px solid #00cc66;"></video>
+
+  <button onclick="startCamera()" style="margin-top: 10px;">Anza Scan</button>
+
+  <script>
+    async function startCamera() {
+      const video = document.getElementById('video');
+
+      try {
+        const permission = await navigator.permissions.query({ name: 'camera' });
+
+        if (permission.state === 'denied') {
+          alert("Umezima ruhusa ya kamera. Tafadhali fungua settings za browser na uruhusu kamera kwa tovuti hii.");
+          return;
+        }
+
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        video.play();
+
+      } catch (err) {
+        alert("Kamera haikufunguka: " + err.name + " - " + err.message);
+      }
+    }
+  </script>
+</body>
+</html>
 
   <header>
     <div class="header-text">
