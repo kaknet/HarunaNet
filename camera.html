@@ -125,6 +125,71 @@
 
   <section class="scanner-section">
     <h2>Bofya Anza Scan ya Uso</h2>
+<!-- KITIFE CHA MAELEZO -->
+<style>
+  .toggle-button {
+    background-color: #00cc66;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .info-box {
+    display: none;
+    background-color: #ffffff;
+    color: #333;
+    border-left: 6px solid #00cc66;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;
+    font-size: 15px;
+    animation: slideDown 0.4s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<button class="toggle-button" onclick="toggleInfo()">Safi! Maelezo kuhusu Anza Scan</button>
+
+<div class="info-box" id="infoBox">
+  <h3>🛈 Jinsi ya Kuwasha Kamera</h3>
+  <ol>
+    <li>Fungua Chrome kabla ya kuanza Scan.</li>
+    <li>Juu kulia kwenye browser, bonyeza alama ya duara yenye herufi <b>“i”</b>.</li>
+    <li>Itakupeleka kwenye sehemu ya ruhusa (permissions).</li>
+    <li>Chini ya kamera, chagua <b>“Allow”</b> au <b>“Ruhusu”</b>.</li>
+    <li>Rudi hapa na bonyeza “Anza Scan”.</li>
+    <li>Elekeza kamera vizuri usawa wa uso wako. Hakikisha simu au laptop haitikisiki.</li>
+    <li>Utaweza kupata ushauri sahihi wa hali yako.</li>
+    <li><b>Anza sasa na Karibu HarunaNet ISP</b> 📡</li>
+  </ol>
+</div>
+
+<script>
+  function toggleInfo() {
+    const box = document.getElementById('infoBox');
+    box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
+  }
+
+  document.addEventListener('click', function(e) {
+    const box = document.getElementById('infoBox');
+    const button = document.querySelector('.toggle-button');
+    if (!box.contains(e.target) && !button.contains(e.target)) {
+      box.style.display = 'none';
+    }
+  });
+</script>
     <button onclick="startCamera()">Anza Scan</button>
     <div id="videoContainer">
       <video id="video" autoplay playsinline></video>
