@@ -287,4 +287,85 @@
  
 
 </body>
+<section id="hisia-section" style="position: relative;">
+  <!-- Kitu kingine chochote cha kawaida ndani ya section hii kitaendelea hapa -->
+  
+  <!-- POPUP YA MATOKEO YA HISIA NA COPY BUTTON -->
+  <style>
+    #popup {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      background-color: #27ae60;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #popup h3 {
+      margin-top: 0;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    #popup p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    #popup button {
+      background-color: #145a32;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #popup button:hover {
+      background-color: #0e3e23;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <div id="popup">
+    <h3>🔊 Hisia Zilizogunduliwa</h3>
+    <p id="popupContent">Hisia: Hakuna bado...</p>
+    <button onclick="copyHisia()">📋 Nakili Matokeo</button>
+  </div>
+
+  <script>
+    const popup = document.getElementById("popup");
+    const popupContent = document.getElementById("popupContent");
+
+    function showPopup(message) {
+      popupContent.innerText = message;
+      popup.style.display = "block";
+    }
+
+    function copyHisia() {
+      navigator.clipboard.writeText(popupContent.innerText).then(() => {
+        popupContent.innerText = popupContent.innerText + " ✅ Imenakiliwa!";
+        setTimeout(() => {
+          popup.style.display = "none";
+          popupContent.innerText = popupContent.innerText.replace(" ✅ Imenakiliwa!", "");
+        }, 2500);
+      });
+    }
+  </script>
+</section>
 </html>
