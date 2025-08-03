@@ -200,6 +200,24 @@
 <button onclick="startCamera()" class="scan-button">Anza Scan Uso</button>
 
 <style>
+#karatasi {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 300px;
+  background: #ffffff;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity:0; }
+  to { transform: translateY(0); opacity:1; }
+}
   #videoContainer {
     position: relative;
     width: 280px;
@@ -285,72 +303,6 @@
 </script> 
 </script>
  
-
-</body><script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-<script>
-  async function startCamera() {
-    const video = document.getElementById('video');
-    const hisiaDiv = document.getElementById('hisia');
-    const ushauriDiv = document.getElementById('ushauri');
-    const popup = document.getElementById("popup");
-    const popupContent = document.getElementById("popupContent");
-
-    await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
-    await faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
-
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    video.srcObject = stream;
-
-    video.addEventListener('play', () => {
-      const canvas = faceapi.createCanvasFromMedia(video);
-      document.getElementById('videoContainer').append(canvas);
-      const displaySize = { width: video.width, height: video.height };
-      faceapi.matchDimensions(canvas, displaySize);
-
-      setInterval(async () => {
-        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        faceapi.draw.drawDetections(canvas, detections);
-
-        if (detections.length > 0) {
-          const exp = detections[0].expressions;
-          const emotion = Object.keys(exp).reduce((a, b) => exp[a] > exp[b] ? a : b);
-          hisiaDiv.innerText = "Hisia: " + emotion;
-
-          let ushauri = "";
-          switch (emotion) {
-            case "happy": ushauri = "Endelea kufurahia maisha yako 😊"; break;
-            case "sad": ushauri = "Pole sana. Jaribu kupumzika na kuzungumza na rafiki."; break;
-            case "angry": ushauri = "Pumua kwa kina. Tafuta mazingira ya utulivu."; break;
-            case "surprised": ushauri = "Kuna jambo la kushangaza? Chukua muda kulitafakari."; break;
-            case "disgusted": ushauri = "Inaonekana kuna kitu hakikupendeza. Tafuta njia ya kusafisha fikra zako."; break;
-            case "fearful": ushauri = "Usiogope. Kila kitu kitaenda sawa. Omba Mungu."; break;
-            default: ushauri = "Endelea kujiangalia kwa karibu zaidi...";
-          }
-          ushauriDiv.innerText = "Ushauri: " + ushauri;
-
-          // Onyesha popup
-          showPopup("Hisia: " + emotion + "\nUshauri: " + ushauri);
-        } else {
-          hisiaDiv.innerText = "Hakuna uso ulioonekana.";
-          ushauriDiv.innerText = "";
-        }
-      }, 2000);
-    });
-
-    function showPopup(message) {
-      popupContent.innerText = message;
-      popup.style.display = "block";
-    }
-
-    window.copyHisia = function() {
-      navigator.clipboard.writeText(popupContent.innerText).then(() => {
-        popupContent.innerText += " ✅ Imenakiliwa!";
-        setTimeout(() => {
-          popup.style.display = "none";
-          popupContent.innerText = popupContent.innerText.replace(" ✅ Imenakiliwa!", "");
-        }, 2500);
-      });
-    }
-  }
+</body>
+ 
 </html>
