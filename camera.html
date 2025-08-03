@@ -300,9 +300,78 @@
       alert("Kifaa chako hakiungi mkono kamera.");
     }
   }
-</script> 
+</script>  
+</body><!-- ==== MATOKEO SECTION (READY TO PASTE) ==== -->
+<!-- Kitufe cha kuonesha matokeo -->
+<button onclick="oneshaMatokeo()" id="matokeoBtn">MATOKEO</button>
+
+<!-- Popup ya karatasi ya matokeo -->
+<div id="karatasi">
+  <p id="majibu">Jina: Haruna Hussein<br>Alama: 84%</p>
+  <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
+</div>
+
+<!-- STYLE ya matokeo -->
+<style>
+#matokeoBtn {
+  padding: 10px 20px;
+  background-color: #006600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#karatasi {
+  display: none;
+  position: absolute;
+  bottom: 100px;
+  right: 50px;
+  width: 300px;
+  background: #ccffcc;
+  border: 2px solid #009900;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: slideUp 0.4s ease;
+  z-index: 999;
+}
+
+#copyBtn {
+  background-color: #004d00;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
+
+<!-- SCRIPT ya matokeo -->
+<script>
+function oneshaMatokeo() {
+  document.getElementById("karatasi").style.display = "block";
+
+  // Hapa unaweza kubadilisha kwa kuchukua data ya ukweli kutoka kamera
+  document.getElementById("majibu").innerHTML = "Jina: Haruna Hussein<br>Uso: Umetambuliwa<br>Alama ya Tabasamu: 92%";
+}
+
+function nakiliMajibu() {
+  let text = document.getElementById("majibu").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("✅ Matokeo yamenakiliwa kikamilifu!");
+    document.getElementById("karatasi").style.display = "none";
+  });
+}
 </script>
- 
-</body>
  
 </html>
