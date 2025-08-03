@@ -190,11 +190,15 @@
     }
   });
 </script>  
-</body><!-- VIDEO NA OVERLAY -->
-<div id="videoContainer">
-  <div class="camera-overlay" id="cameraOverlay">
+</body><!-- CAMERA DUARA NA ICON NDANI -->
+<div class="camera-wrapper">
+  <div class="camera-circle">
     <img src="Scam.jpg" alt="Camera Icon" class="camera-icon">
   </div>
+</div>
+
+<!-- CONTAINER YA VIDEO -->
+<div id="videoContainer">
   <video id="video" autoplay playsinline></video>
 </div>
 
@@ -210,68 +214,68 @@
   <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
 </div>
 
-<!-- STYLE ZOTE -->
-<style><!-- Kamera Duara Jeusi na Logo Centered -->
+<!-- STYLES ZOTE -->
 <style>
-  .camera-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
+body {
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
 
-  .camera-circle {
-    width: 250px;
-    height: 250px;
-    background-color: black;
-    border-radius: 50%;
-    border: 5px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
+/* Kamera Duara */
+.camera-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+.camera-circle {
+  width: 250px;
+  height: 250px;
+  background-color: black;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.camera-circle .camera-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00ffcc;
+}
 
-  .camera-circle img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #00ffcc;
-  }
-</style>
-
-<div class="camera-wrapper">
-  <div class="camera-circle">
-    <img src="Scam.jpg" alt="Logo ya Haruna" />
-  </div>
-</div>
+/* Video Container */
 #videoContainer {
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: auto;
+  margin: 20px auto;
 }
 video {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
-.camera-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.camera-icon {
-  width: 80px;
-  opacity: 0.7;
-  border-radius: 50%;
-}
 
-.scan-button, #matokeoBtn {
+/* Buttons */
+.scan-button {
   margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #28a745; /* kijani kibichi */
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+}
+#matokeoBtn {
+  margin: 10px auto;
   padding: 12px 24px;
   background-color: #007bff;
   color: white;
@@ -282,9 +286,10 @@ video {
   display: block;
 }
 
+/* Karatasi ya Majibu */
 #karatasi {
   display: none;
-  position: absolute;
+  position: fixed;
   bottom: 80px;
   right: 20px;
   width: 300px;
@@ -306,6 +311,7 @@ video {
   margin-top: 10px;
   cursor: pointer;
 }
+
 @keyframes slideUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
@@ -315,13 +321,11 @@ video {
 <!-- SCRIPT KUU -->
 <script>
 let video = document.getElementById("video");
-let overlay = document.getElementById("cameraOverlay");
 
 function startCamera() {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function(stream) {
       video.srcObject = stream;
-      overlay.style.display = "none";
 
       // Simulate scan for 5 seconds
       setTimeout(() => {
