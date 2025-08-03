@@ -211,7 +211,42 @@
 </div>
 
 <!-- STYLE ZOTE -->
+<style><!-- Kamera Duara Jeusi na Logo Centered -->
 <style>
+  .camera-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .camera-circle {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .camera-circle img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00ffcc;
+  }
+</style>
+
+<div class="camera-wrapper">
+  <div class="camera-circle">
+    <img src="Scam.jpg" alt="Logo ya Haruna" />
+  </div>
+</div>
 #videoContainer {
   position: relative;
   width: 100%;
