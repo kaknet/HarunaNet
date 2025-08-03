@@ -190,103 +190,84 @@
     }
   });
 </script>  
-</body><!-- CAMERA DUARA NA ICON NDANI -->
-<div class="camera-wrapper">
-  <div class="camera-circle">
+</body><!-- CAMERA CONTAINER -->
+<div id="videoContainer">
+  <div class="camera-overlay" id="cameraOverlay">
     <img src="Scam.jpg" alt="Camera Icon" class="camera-icon">
   </div>
+  <video id="video" autoplay playsinline muted></video>
 </div>
 
-<!-- CONTAINER YA VIDEO -->
-<div id="videoContainer">
-  <video id="video" autoplay playsinline></video>
-</div>
-
-<!-- KITUFE ANZA SCAN -->
+<!-- KITUFE CHA ANZA SCAN -->
 <button onclick="startCamera()" class="scan-button">Anza Scan</button>
 
-<!-- KITUFE MATOKEO -->
-<button onclick="oneshaMatokeo()" id="matokeoBtn" style="display: none;">MATOKEO</button>
+<!-- KITUFE CHA MATOKEO -->
+<button onclick="oneshaMatokeo()" id="matokeoBtn" style="display: none;">✔️ MATOKEO</button>
 
 <!-- KARTASI YA MAJIBU -->
 <div id="karatasi">
-  <p id="majibu">Jina: Haruna Hussein<br>Uso: Umetambuliwa<br>Alama ya Tabasamu: 92%</p>
+  <p id="majibu">👤 Jina: Haruna Hussein<br>😎 Uso: Umetambuliwa<br>😊 Tabasamu: 92%</p>
   <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
 </div>
 
-<!-- STYLES ZOTE -->
+<!-- STYLE YA CAMERA & BUTTONS -->
 <style>
-body {
-  background-color: #f1f1f1;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Kamera Duara */
-.camera-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-}
-.camera-circle {
-  width: 250px;
-  height: 250px;
-  background-color: black;
-  border-radius: 50%;
-  border: 5px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-.camera-circle .camera-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #00ffcc;
-}
-
-/* Video Container */
 #videoContainer {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
+  max-width: 400px;
+  margin: 40px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 18px rgba(0,0,0,0.6);
+  background: black;
 }
 video {
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  border-radius: 50%;
+}
+.camera-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.camera-icon {
+  width: 100px;
+  opacity: 0.75;
+  border-radius: 50%;
+  border: 4px solid #fff;
 }
 
-/* Buttons */
 .scan-button {
+  display: block;
   margin: 20px auto;
-  padding: 12px 24px;
-  background-color: #28a745; /* kijani kibichi */
+  padding: 12px 28px;
+  background-color: #28a745;
   color: white;
+  font-size: 16px;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  display: block;
-}
-#matokeoBtn {
-  margin: 10px auto;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Karatasi ya Majibu */
+#matokeoBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 28px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
 #karatasi {
   display: none;
   position: fixed;
@@ -296,38 +277,38 @@ video {
   background: #ffffff;
   border: 2px solid #ccc;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   animation: slideUp 0.4s ease;
   z-index: 999;
 }
 #copyBtn {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: none;
-  border-radius: 5px;
-  float: right;
+  border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
 }
-
 @keyframes slideUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 </style>
 
-<!-- SCRIPT KUU -->
+<!-- SCRIPT YA KAMERA -->
 <script>
 let video = document.getElementById("video");
+let overlay = document.getElementById("cameraOverlay");
 
 function startCamera() {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function(stream) {
       video.srcObject = stream;
+      overlay.style.display = "none";
 
-      // Simulate scan for 5 seconds
+      // Simulate scanning kwa sekunde 5
       setTimeout(() => {
         stream.getTracks().forEach(track => track.stop());
         video.srcObject = null;
@@ -335,7 +316,7 @@ function startCamera() {
       }, 5000);
     })
     .catch(function(err) {
-      alert("Camera haipatikani: " + err);
+      alert("Kamera haikupatikana: " + err);
     });
 }
 
@@ -346,11 +327,12 @@ function oneshaMatokeo() {
 function nakiliMajibu() {
   let text = document.getElementById("majibu").innerText;
   navigator.clipboard.writeText(text).then(() => {
-    alert("✅ Matokeo yamenakiliwa kikamilifu!");
+    alert("✅ Majibu yamenakiliwa!");
     document.getElementById("karatasi").style.display = "none";
   });
 }
-</script>
+</script> 
+
 </script>
  
 </html>
