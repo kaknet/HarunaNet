@@ -301,77 +301,82 @@
     }
   }
 </script>  
-</body><!-- ==== MATOKEO SECTION (READY TO PASTE) ==== -->
-<!-- Kitufe cha kuonesha matokeo -->
-<button onclick="oneshaMatokeo()" id="matokeoBtn">MATOKEO</button>
+</body><!-- Kamera Video Preview -->
+<video id="video" width="100%" height="300" autoplay style="border-radius: 10px;"></video>
 
-<!-- Popup ya karatasi ya matokeo -->
-<div id="karatasi">
-  <p id="majibu">Jina: Haruna Hussein<br>Alama: 84%</p>
-  <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
+<!-- Kitufe cha Scan -->
+<button id="startScanBtn" style="margin-top: 15px; padding: 10px 20px; background: orange; border: none; border-radius: 5px;">Anza Scan</button>
+
+<!-- Kitufe cha Matokeo (huonekana baada ya scan tu) -->
+<button id="showResultsBtn" style="margin-top: 10px; padding: 10px 20px; background: green; color: white; border: none; border-radius: 5px; display: none;">Matokeo</button>
+
+<!-- Kijikaratasi cha Majibu -->
+<div id="karatasi" style="display: none; position: relative; width: 300px; background: #e0ffe0; border: 2px solid #88cc88; padding: 20px; border-radius: 12px; margin-top: 20px; animation: slideUp 0.4s ease;">
+  <button onclick="copyResults()" style="position: absolute; top: 10px; right: 10px; background: white; border: 1px solid #ccc; border-radius: 3px; padding: 4px 8px;">Copy</button>
+  <div id="resultsContent">
+    <p><strong>Jina:</strong> Haruna Hussein</p>
+    <p><strong>Uso:</strong> Umetambuliwa ✅</p>
+    <p><strong>Alama ya Tabasamu:</strong> 92%</p>
+  </div>
 </div>
 
-<!-- STYLE ya matokeo -->
+<!-- JavaScript -->
+<script>
+  const video = document.getElementById('video');
+  const startBtn = document.getElementById('startScanBtn');
+  const showBtn = document.getElementById('showResultsBtn');
+  const karatasi = document.getElementById('karatasi');
+  const resultsContent = document.getElementById('resultsContent');
+
+  // Washa kamera
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => video.srcObject = stream)
+    .catch(err => console.error("Kamera haikupatikana", err));
+
+  let scanDone = false;
+
+  startBtn.addEventListener('click', () => {
+    karatasi.style.display = "none";
+    showBtn.style.display = "none";
+    scanDone = false;
+    startBtn.innerText = "Inascan...";
+    
+    setTimeout(() => {
+      scanDone = true;
+      startBtn.innerText = "Scan Imefanikiwa ✅";
+      showBtn.style.display = "inline-block";
+    }, 5000); // Sekunde 5
+  });
+
+  showBtn.addEventListener('click', () => {
+    if (scanDone) {
+      resultsContent.innerHTML = `
+        <p><strong>Jina:</strong> Haruna Hussein</p>
+        <p><strong>Uso:</strong> Umetambuliwa ✅</p>
+        <p><strong>Alama ya Tabasamu:</strong> 92%</p>
+      `;
+    } else {
+      resultsContent.innerHTML = `<p>⚠️ Hakuna Scan Iliyofanyika</p>`;
+    }
+    karatasi.style.display = "block";
+  });
+
+  function copyResults() {
+    const text = resultsContent.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("📋 Umenakili matokeo yako!");
+      karatasi.style.display = "none";
+    });
+  }
+</script>
+
+<!-- Animation -->
 <style>
-#matokeoBtn {
-  padding: 10px 20px;
-  background-color: #006600;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-#karatasi {
-  display: none;
-  position: absolute;
-  bottom: 100px;
-  right: 50px;
-  width: 300px;
-  background: #ccffcc;
-  border: 2px solid #009900;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  animation: slideUp 0.4s ease;
-  z-index: 999;
-}
-
-#copyBtn {
-  background-color: #004d00;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  float: right;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
 @keyframes slideUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 </style>
-
-<!-- SCRIPT ya matokeo -->
-<script>
-function oneshaMatokeo() {
-  document.getElementById("karatasi").style.display = "block";
-
-  // Hapa unaweza kubadilisha kwa kuchukua data ya ukweli kutoka kamera
-  document.getElementById("majibu").innerHTML = "Jina: Haruna Hussein<br>Uso: Umetambuliwa<br>Alama ya Tabasamu: 92%";
-}
-
-function nakiliMajibu() {
-  let text = document.getElementById("majibu").innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("✅ Matokeo yamenakiliwa kikamilifu!");
-    document.getElementById("karatasi").style.display = "none";
-  });
-}
 </script>
  
 </html>
