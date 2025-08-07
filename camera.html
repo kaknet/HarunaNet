@@ -347,21 +347,6 @@ function nakiliMajibu() {
       document.getElementById("karatasi").style.display = "none";
     });
   }
-</script>async function tambuaHisia() {
-  const video = document.getElementById('videoElement');
-
-  const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
-
-  if (detections) {
-    const emotions = detections.expressions;
-    const dominant = Object.keys(emotions).reduce((a, b) => emotions[a] > emotions[b] ? a : b);
-
-    document.getElementById("majibu").innerText = "Hisia zilizotambuliwa: " + dominant.toUpperCase();
-    oneshaMatokeo();
-  } else {
-    document.getElementById("majibu").innerText = "Hakuna uso ulioonekana!";
-    oneshaMatokeo();
-  }
-}
+</script>
 </body> 
 </html>
