@@ -9,10 +9,11 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #0077be, #00c6ff); /* blue bahari */
+      background: linear-gradient(to bottom, #0077be, #00c6ff);
       color: white;
       text-align: center;
-    } {
+    }
+    header {
       background: url('Intel1.jpg') no-repeat center center/cover;
       height: 300px;
       position: relative;
@@ -105,13 +106,142 @@
       color: white;
       margin-top: 50px;
     }
+    .toggle-button {
+      background-color: #00cc66;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .info-box {
+      display: none;
+      background-color: #ffffff;
+      color: #333;
+      border-left: 6px solid #00cc66;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+      font-size: 15px;
+      animation: slideDown 0.4s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #videoContainer {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 40px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 18px rgba(0,0,0,0.6);
+      background: black;
+    }
+    video {
+      width: 100%;
+      border-radius: 50%;
+    }
+    .camera-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    .camera-icon {
+      width: 100px;
+      opacity: 0.75;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+
+    .scan-button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 28px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    #matokeoBtn {
+      display: none;
+      margin: 20px auto;
+      padding: 12px 28px;
+      background-color: orange;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    #karatasi {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: #ffffff;
+      border: 2px solid #ccc;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: slideUp 0.4s ease;
+      z-index: 999;
+    }
+    #copyBtn {
+      background-color: #007bff;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    #loading-spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
-</head><!-- Face API JS -->
+</head>
 <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
 <body>
-      
-</html>
-
   <header>
     <div class="header-text">
       <h1>WELCOME TO HARUNA AI</h1>
@@ -124,227 +254,173 @@
 
   <section class="scanner-section">
     <h2>Bofya Anza Scan ya Uso</h2>
-<!-- KITIFE CHA MAELEZO -->
-<style>
-  .toggle-button {
-    background-color: #00cc66;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  }
 
-  .info-box {
-    display: none;
-    background-color: #ffffff;
-    color: #333;
-    border-left: 6px solid #00cc66;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: left;
-    font-size: 15px;
-    animation: slideDown 0.4s ease-out;
-  }
+    <button class="toggle-button" onclick="toggleInfo()">Safi! Maelezo kuhusu Anza Scan</button>
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    <div class="info-box" id="infoBox">
+      <h3>🛈 Jinsi ya Kuwasha Kamera</h3>
+      <ol>
+        <li>Fungua Chrome kabla ya kuanza Scan.</li>
+        <li>Juu kulia kwenye browser, bonyeza alama ya duara yenye herufi <b>“i”</b>.</li>
+        <li>Itakupeleka kwenye sehemu ya ruhusa (permissions).</li>
+        <li>Chini ya kamera, chagua <b>“Allow”</b> au <b>“Ruhusu”</b>.</li>
+        <li>Rudi hapa na bonyeza “Anza Scan”.</li>
+        <li>Elekeza kamera vizuri usawa wa uso wako. Hakikisha simu au laptop haitikisiki.</li>
+        <li>Utaweza kupata ushauri sahihi wa hali yako.</li>
+        <li><b>Anza sasa na Karibu HarunaNet ISP</b> 📡</li>
+      </ol>
+    </div>
 
-<button class="toggle-button" onclick="toggleInfo()">Safi! Maelezo kuhusu Anza Scan</button>
+    <div id="videoContainer">
+      <div class="camera-overlay" id="cameraOverlay">
+        <img src="Scam.jpg" alt="Camera Icon" class="camera-icon">
+      </div>
+      <video id="video" autoplay playsinline muted></video>
+    </div>
+    
+    <button onclick="startCamera()" class="scan-button" id="scanButton">Anza Scan</button>
 
-<div class="info-box" id="infoBox">
-  <h3>🛈 Jinsi ya Kuwasha Kamera</h3>
-  <ol>
-    <li>Fungua Chrome kabla ya kuanza Scan.</li>
-    <li>Juu kulia kwenye browser, bonyeza alama ya duara yenye herufi <b>“i”</b>.</li>
-    <li>Itakupeleka kwenye sehemu ya ruhusa (permissions).</li>
-    <li>Chini ya kamera, chagua <b>“Allow”</b> au <b>“Ruhusu”</b>.</li>
-    <li>Rudi hapa na bonyeza “Anza Scan”.</li>
-    <li>Elekeza kamera vizuri usawa wa uso wako. Hakikisha simu au laptop haitikisiki.</li>
-    <li>Utaweza kupata ushauri sahihi wa hali yako.</li>
-    <li><b>Anza sasa na Karibu HarunaNet ISP</b> 📡</li>
-  </ol>
-</div>
+    <div id="loading-spinner"></div>
+    
+    <button onclick="oneshaMatokeo()" id="matokeoBtn">✔️ MATOKEO</button>
 
-<script>
-  function toggleInfo() {
-    const box = document.getElementById('infoBox');
-    box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
-  }
+    <div id="karatasi">
+      <p id="majibu">Karatasi itajazwa hapa...</p>
+      <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
+    </div>
+  </section>
 
-  document.addEventListener('click', function(e) {
-    const box = document.getElementById('infoBox');
-    const button = document.querySelector('.toggle-button');
-    if (!box.contains(e.target) && !button.contains(e.target)) {
-      box.style.display = 'none';
+  <footer>
+    <p>&copy; 2025 Haruna AI. Haki zote zimehifadhiwa.</p>
+  </footer>
+
+  <script>
+    let video = document.getElementById("video");
+    let overlay = document.getElementById("cameraOverlay");
+    let matokeoBtn = document.getElementById("matokeoBtn");
+    let scanButton = document.getElementById("scanButton");
+    let majibuElement = document.getElementById("majibu");
+    let loadingSpinner = document.getElementById("loading-spinner");
+    let scanningInterval;
+    let finalResult = null;
+
+    // Ushauri kulingana na hisia
+    const advice = {
+      happy: "Unaonekana una furaha nyingi! Shea furaha hii na wenzako. Jiulize: je, unaweza kujifunza nini leo ili kesho iwe bora zaidi? Furaha ya leo inapaswa kuwa msingi wa furaha ya kesho.",
+      sad: "Unaonekana umepatwa na huzuni, huenda kuna kitu hakiko sawa. Jaribu kutafuta muda wa kupumzika. Nenda ufukweni (beach) hata kwa nusu saa, angalia mawimbi ya bahari na ujiambie, 'Sitaki kuwaza chochote, kama mawimbi haya yanavyosukumwa na upepo bila mawazo.' Kisha anza upya.",
+      angry: "Hisia za hasira zimetawala! Jaribu kupumua kwa kina na polepole. Ni sawa kuhisi hasira, lakini usiruhusu ikuzidi. Fanya kitu unachopenda, kama kusikiliza muziki au kutembea kidogo, ili kutuliza akili.",
+      neutral: "Uso wako unaonyesha hisia za kawaida. Hali hii ni nzuri kwa ajili ya kutafakari. Jiulize, 'Je, niko mahali sahihi na ninachofanya ndicho ninachokitaka?' Fanya mipango ya kesho na ujipange upya.",
+      surprised: "Ooh, mshangao! Hii inaweza kuwa ni dalili ya jambo jipya. Usiogope mabadiliko. Fungua akili yako kwa uwezekano mpya. Jaribu kufanya kitu ambacho hukutarajia.",
+      disgusted: "Inaonekana kuna jambo limekukera sana. Ni muhimu kujua kinachokukasirisha. Epuka vitu au watu vinavyokuumiza kiakili. Lenga kwenye mambo mazuri tu.",
+      fearful: "Hofu inajitokeza. Kumbuka, hofu ni hisia ya kawaida. Pambana na hofu kwa hatua ndogo ndogo. Fikiria jambo la kutia moyo na ujiambie 'Naweza!'",
+    };
+
+    // Pakua faili za modeli
+    async function loadModels() {
+      loadingSpinner.style.display = 'block';
+      await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+      await faceapi.nets.faceExpressionNet.loadFromUri('/models');
+      loadingSpinner.style.display = 'none';
+      console.log("Models loaded successfully.");
     }
-  });
-</script>  
-</body><!-- CAMERA CONTAINER -->
-<div id="videoContainer">
-  <div class="camera-overlay" id="cameraOverlay">
-    <img src="Scam.jpg" alt="Camera Icon" class="camera-icon">
-  </div>
-  <video id="video" autoplay playsinline muted></video>
-</div>
+    loadModels();
 
-<!-- KITUFE CHA ANZA SCAN -->
-<button onclick="startCamera()" class="scan-button">Anza Scan</button>
+    async function startCamera() {
+      // Angalia kama browser inasupport WebRTC
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        alert("Kifaa chako hakina msaada wa kamera au ruhusa haijaruhusiwa.");
+        return;
+      }
 
-<!-- KITUFE CHA MATOKEO -->
-<button onclick="oneshaMatokeo()" id="matokeoBtn" style="display: none;">✔️ MATOKEO</button>
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        overlay.style.display = "none";
+        scanButton.style.display = "none";
+        
+        // Ficha kitufe cha matokeo hadi utambuzi ukamilike
+        matokeoBtn.style.display = "none";
+        document.getElementById("karatasi").style.display = "none";
+        
+        // Simamisha uchambuzi baada ya sekunde 10
+        let emotionsList = [];
+        let scanningTime = 0;
+        
+        scanningInterval = setInterval(async () => {
+          if (scanningTime >= 10) {
+            clearInterval(scanningInterval);
+            stream.getTracks().forEach(track => track.stop());
+            video.srcObject = null;
+            matokeoBtn.style.display = "block";
+            scanButton.style.display = "block";
+            alert("Utambuzi umekamilika. Bonyeza 'MATOKEO' kuona majibu.");
 
-<!-- KARTASI YA MAJIBU -->
-<div id="karatasi">
-  <p id="majibu">👤 Jina: Haruna Hussein<br>😎 Uso: Umetambuliwa<br>😊 Tabasamu: 92%</p>
-  <button onclick="nakiliMajibu()" id="copyBtn">📋 Copy</button>
-</div>
+            const emotionCounts = {};
+            emotionsList.forEach(e => {
+              emotionCounts[e] = (emotionCounts[e] || 0) + 1;
+            });
+            const dominantEmotionFinal = Object.keys(emotionCounts).reduce((a, b) => emotionCounts[a] > emotionCounts[b] ? a : b, 'neutral');
+            
+            finalResult = {
+              emotion: dominantEmotionFinal,
+              advice: advice[dominantEmotionFinal] || "Hakuna ushauri mahususi kwa hisia hii. Jali afya yako ya akili!"
+            };
+            return;
+          }
 
-<!-- STYLE YA CAMERA & BUTTONS -->
-<style>
-#videoContainer {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 40px auto;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 0 18px rgba(0,0,0,0.6);
-  background: black;
-}
-video {
-  width: 100%;
-  border-radius: 50%;
-}
-.camera-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-.camera-icon {
-  width: 100px;
-  opacity: 0.75;
-  border-radius: 50%;
-  border: 4px solid #fff;
-}
+          const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+            
+          if (detections) {
+            const expressions = detections.expressions;
+            const dominantEmotion = Object.keys(expressions).reduce((a, b) => expressions[a] > expressions[b] ? a : b);
+            emotionsList.push(dominantEmotion);
+          }
+          scanningTime++;
+        }, 1000); // Fanya uchambuzi kila sekunde moja
 
-.scan-button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 28px;
-  background-color: #28a745;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+      } catch (err) {
+        alert("Kamera haikupatikana au ruhusa imekataliwa: " + err);
+        scanButton.style.display = "block";
+      }
+    }
 
-#matokeoBtn {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 28px;
-  background-color: orange;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+    function oneshaMatokeo() {
+      if (finalResult) {
+        let adviceTitle = "";
+        if (finalResult.emotion === "happy") {
+          adviceTitle = "Ushauri Wako wa Furaha:";
+        } else if (finalResult.emotion === "sad") {
+          adviceTitle = "Ushauri Wako wa Huzuni:";
+        } else {
+          adviceTitle = "Ushauri Wako:";
+        }
+        majibuElement.innerHTML = `<h3>Matokeo ya Hisia</h3><p><b>Hisia iliyotawala:</b> ${finalResult.emotion.toUpperCase()}</p><h4>${adviceTitle}</h4><p>${finalResult.advice}</p>`;
+      } else {
+        majibuElement.innerText = "Jaribu tena. Bonyeza 'Anza Scan' kwanza.";
+      }
+      document.getElementById("karatasi").style.display = "block";
+    }
 
-#karatasi {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  background: #ffffff;
-  border: 2px solid #ccc;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  animation: slideUp 0.4s ease;
-  z-index: 999;
-}
-#copyBtn {
-  background-color: #007bff;
-  color: white;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-</style>
+    function nakiliMajibu() {
+      let text = majibuElement.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ Majibu yamenakiliwa!");
+        document.getElementById("karatasi").style.display = "none";
+      });
+    }
 
-<!-- SCRIPT YA KAMERA -->
-<script>
-let video = document.getElementById("video");
-let overlay = document.getElementById("cameraOverlay");
+    function toggleInfo() {
+      const box = document.getElementById('infoBox');
+      box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
+    }
 
-function startCamera() {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function(stream) {
-      video.srcObject = stream;
-      overlay.style.display = "none";
-
-      // Simulate scanning kwa sekunde 5
-      setTimeout(() => {
-        stream.getTracks().forEach(track => track.stop());
-        video.srcObject = null;
-        document.getElementById("matokeoBtn").style.display = "block";
-      }, 5000);
-    })
-    .catch(function(err) {
-      alert("Kamera haikupatikana: " + err);
+    document.addEventListener('click', function(e) {
+      const box = document.getElementById('infoBox');
+      const button = document.querySelector('.toggle-button');
+      if (!box.contains(e.target) && !button.contains(e.target)) {
+        box.style.display = 'none';
+      }
     });
-}
-
-function oneshaMatokeo() {
-  document.getElementById("karatasi").style.display = "block";
-}
-
-function nakiliMajibu() {
-  let text = document.getElementById("majibu").innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("✅ Majibu yamenakiliwa!");
-    document.getElementById("karatasi").style.display = "none";
-  });
-}
-</script> 
-
-</script><script>
-  // Script zako binafsi za matokeo na nakili
-  function oneshaMatokeo() {
-    document.getElementById("karatasi").style.display = "block";
-  }
-
-  function nakiliMajibu() {
-    let text = document.getElementById("majibu").innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("✅ Majibu yamenakiliwa!");
-      document.getElementById("karatasi").style.display = "none";
-    });
-  }
-</script>
-</body> 
+  </script>
+</body>
 </html>
